@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const CustomCursor = () => {
-  const [mousePosition, setMousePosition] = null; // Replaced with an object directly
   const [cursorVariant, setCursorVariant] = useState("default");
   
   const [position, setPosition] = useState({ x: 0, y: 0 });
