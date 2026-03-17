@@ -23,13 +23,14 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className={`fixed w-full z-50 transition-colors duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex justify-between items-center">
-          <div className="flex-shrink-0">
-            <a href="#" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-slate-800">
-              Vishal Singh.
-            </a>
+          <div className="flex-shrink-0 relative">
+            {/* Invisible spacer for the animated logo to land on */}
+            <div id="nav-logo-spacer" className="text-2xl font-bold opacity-0 whitespace-nowrap">
+              VISHAL.
+            </div>
           </div>
           
           {/* Desktop Menu */}

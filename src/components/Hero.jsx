@@ -42,14 +42,13 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col items-center"
         >
-          <span className="inline-block py-1 px-3 rounded-full bg-blue-100/80 backdrop-blur-sm text-blue-800 text-sm font-semibold tracking-wider mb-6">
+          <span className="inline-block py-1 px-3 rounded-full bg-blue-100/80 backdrop-blur-sm text-blue-800 text-sm font-semibold tracking-wider mb-4 mt-8">
             BCA Student & Aspiring Professional
           </span>
           
-          <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight mb-6">
-            Vishal <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-700">Singh</span>
-          </h1>
+          <div className="h-24 md:h-40 w-full" /> {/* Spacer for the giant animated text */}
           
           <h2 className="text-xl md:text-3xl font-medium text-slate-600 mb-8 max-w-3xl mx-auto">
             Business Analyst | Data & Sales Strategy Enthusiast
