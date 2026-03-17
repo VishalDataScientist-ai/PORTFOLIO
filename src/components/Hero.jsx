@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Download, Linkedin, Mail } from 'lucide-react';
-import { DottedSurface } from './ui/dotted-surface';
+import Hyperspeed from './ui/Hyperspeed';
+import { hyperspeedPresets } from './ui/HyperSpeedPresets';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
@@ -31,7 +32,9 @@ const Hero = () => {
   return (
     <section id="hero" ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
       
-      <DottedSurface className="opacity-50" />
+      <div className="absolute inset-0 z-0">
+        <Hyperspeed effectOptions={hyperspeedPresets.one} />
+      </div>
 
       {/* Background decoration */}
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-400/10 blur-3xl pointer-events-none gsap-blob-1" />
