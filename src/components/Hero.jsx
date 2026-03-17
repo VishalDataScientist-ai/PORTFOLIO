@@ -30,15 +30,15 @@ const Hero = () => {
   }, { scope: containerRef });
 
   return (
-    <section id="hero" ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
+    <section id="hero" ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       
       <div className="absolute inset-0 z-0">
         <Hyperspeed effectOptions={hyperspeedPresets.one} />
       </div>
 
       {/* Background decoration */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-400/10 blur-3xl pointer-events-none gsap-blob-1" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-400/10 blur-3xl pointer-events-none gsap-blob-2" />
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-cyan-500/20 blur-3xl pointer-events-none gsap-blob-1" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-fuchsia-500/20 blur-3xl pointer-events-none gsap-blob-2" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
         <motion.div
@@ -47,24 +47,24 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-center"
         >
-          <span className="inline-block py-1 px-3 rounded-full bg-blue-100/80 backdrop-blur-sm text-blue-800 text-sm font-semibold tracking-wider mb-4 mt-8">
+          <span className="inline-block py-1 px-3 rounded-full bg-cyan-950/60 border border-cyan-500/30 backdrop-blur-sm text-cyan-400 text-sm font-semibold tracking-wider mb-4 mt-8 shadow-[0_0_15px_rgba(34,211,238,0.2)]">
             BCA Student & Aspiring Professional
           </span>
           
           <div className="h-24 md:h-40 w-full" /> {/* Spacer for the giant animated text */}
           
-          <h2 className="text-xl md:text-3xl font-medium text-slate-600 mb-8 max-w-3xl mx-auto">
+          <h2 className="text-xl md:text-3xl font-medium text-slate-300 mb-8 max-w-3xl mx-auto drop-shadow-lg">
             Business Analyst | Data & Sales Strategy Enthusiast
           </h2>
           
-          <p className="text-lg text-slate-500 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
             Helping businesses make smarter decisions using data, analytics, and strategic thinking. I bridge the gap between complex datasets and actionable business insights.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a 
               href="#projects" 
-              className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-blue-700 hover:bg-blue-800 text-white px-8 py-3.5 rounded-lg transition-all shadow-lg hover:shadow-xl font-medium"
+              className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white px-8 py-3.5 rounded-lg transition-all shadow-[0_0_20px_rgba(34,211,238,0.4)] font-semibold"
             >
               <span>View My Work</span>
               <ArrowRight size={18} />
@@ -72,7 +72,7 @@ const Hero = () => {
             
             <a 
               href="#contact" 
-              className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-white border-2 border-slate-200 hover:border-slate-300 text-slate-700 px-8 py-3.5 rounded-lg transition-all font-medium"
+              className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-transparent border-2 border-fuchsia-500 text-fuchsia-400 hover:bg-fuchsia-500/10 px-8 py-3.5 rounded-lg transition-all shadow-[0_0_15px_rgba(217,70,239,0.3)_inset] font-semibold"
             >
               <span>Connect With Me</span>
               <Mail size={18} />
@@ -80,7 +80,7 @@ const Hero = () => {
           </div>
 
           <div className="mt-16 flex items-center justify-center gap-6">
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-blue-700 transition-colors hidden">
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors hidden tracking-widest uppercase text-sm font-bold">
                <Linkedin size={24} />
             </a>
           </div>
@@ -89,14 +89,14 @@ const Hero = () => {
 
       {/* Scroll Indicator */}
       <motion.div 
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
       >
-        <div className="w-[30px] h-[50px] rounded-full border-2 border-slate-300 flex justify-center p-1">
+        <div className="w-[30px] h-[50px] rounded-full border-2 border-cyan-500/50 flex justify-center p-1 shadow-[0_0_10px_rgba(34,211,238,0.3)]">
           <motion.div 
-            className="w-1.5 h-1.5 bg-slate-500 rounded-full"
+            className="w-1.5 h-1.5 bg-cyan-400 rounded-full shadow-[0_0_8px_rgba(34,211,238,0.8)]"
             animate={{ y: [0, 15, 0] }}
             transition={{ repeat: Infinity, duration: 1.5 }}
           />

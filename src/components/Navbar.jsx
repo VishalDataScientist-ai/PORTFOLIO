@@ -40,7 +40,7 @@ const Navbar = () => {
                 <a 
                   key={link.name} 
                   href={link.href} 
-                  className="text-slate-600 hover:text-blue-600 font-medium transition-colors text-sm uppercase tracking-wider"
+                  className={`font-medium transition-colors text-sm uppercase tracking-wider ${isScrolled ? 'text-slate-600 hover:text-cyan-600' : 'text-slate-300 hover:text-cyan-400'}`}
                 >
                   {link.name}
                 </a>
@@ -48,7 +48,7 @@ const Navbar = () => {
             </div>
             <a 
               href="/resume.pdf" 
-              className="flex items-center space-x-2 bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-lg transition-colors font-medium text-sm"
+              className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all font-medium text-sm ${isScrolled ? 'bg-slate-900 hover:bg-slate-800 text-white' : 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/50 hover:bg-cyan-500/40 shadow-[0_0_10px_rgba(34,211,238,0.3)]'}`}
               target="_blank" rel="noreferrer"
             >
               <Download size={16} />
@@ -60,7 +60,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-slate-600 hover:text-slate-900 focus:outline-none"
+              className={`focus:outline-none transition-colors ${isScrolled ? 'text-slate-600 hover:text-slate-900' : 'text-slate-300 hover:text-white'}`}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
