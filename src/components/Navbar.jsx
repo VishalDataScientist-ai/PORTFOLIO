@@ -71,74 +71,84 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Full Screen Animated Menu */}
+      {/* Half Screen Animated Menu */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div 
-            variants={menuVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            className="fixed inset-0 bg-[#0f0f11] z-[110] flex flex-col justify-center pl-10 md:pl-24 lg:pl-32 xl:pl-48"
-          >
-            {/* Close Button */}
-            <button 
-              onClick={() => setIsMenuOpen(false)}
-              className="absolute top-8 right-8 md:right-12 lg:right-16 flex items-center space-x-2 text-white font-bold uppercase tracking-widest text-sm hover:text-cyan-400 transition-colors"
-            >
-              <span>Close</span>
-              <X size={24} strokeWidth={3} />
-            </button>
-
-            {/* Links List */}
-            <div className="flex flex-col space-y-4 md:space-y-6">
-              {navLinks.map((link, i) => (
-                <motion.a
-                  key={link.name}
-                  href={link.href}
-                  custom={i}
-                  variants={linkVariants}
-                  initial="initial"
-                  animate="animate"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="group flex flex-row items-start text-5xl md:text-7xl lg:text-8xl font-black text-white hover:text-cyan-400 transition-colors w-max tracking-tighter"
-                >
-                  {link.name}
-                  <span className="text-sm md:text-xl font-normal ml-4 mt-2 md:mt-4 text-slate-500 group-hover:text-cyan-400 transition-colors">
-                    {link.num}
-                  </span>
-                </motion.a>
-              ))}
-            </div>
-
-            {/* Socials & Resume */}
+          <>
+            {/* Dark semi-transparent backdrop for the remaining half of the screen */}
             <motion.div 
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1, transition: { delay: 0.9, duration: 1 } }}
-              className="absolute bottom-12 left-10 md:left-24 lg:left-32 xl:left-48 text-slate-400 text-sm flex flex-col md:flex-row md:items-center gap-8 md:gap-16"
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, transition: { delay: 0.2 } }}
+              onClick={() => setIsMenuOpen(false)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100]"
+            />
+            <motion.div 
+              variants={menuVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="fixed top-0 right-0 bottom-0 w-full md:w-1/2 bg-[#0f0f11] z-[110] flex flex-col justify-center pl-10 md:pl-16 lg:pl-24 border-l border-slate-800 shadow-2xl"
             >
-              <div>
-                <p className="mb-4 text-slate-600 uppercase tracking-widest text-xs font-bold">Socials</p>
-                <div className="flex space-x-6 uppercase tracking-widest text-xs font-medium">
-                  <a href="#" className="hover:text-cyan-400 transition-colors">LinkedIn</a>
-                  <a href="#" className="hover:text-cyan-400 transition-colors">GitHub</a>
-                  <a href="#" className="hover:text-cyan-400 transition-colors">Twitter</a>
-                </div>
-              </div>
-              
-              <div>
-                <p className="mb-4 text-slate-600 uppercase tracking-widest text-xs font-bold">Download</p>
-                <a 
-                  href="/resume.pdf" target="_blank" rel="noreferrer"
-                  className="flex items-center space-x-2 text-white bg-slate-800/50 hover:bg-cyan-500/20 hover:text-cyan-400 px-4 py-2 rounded-lg transition-all border border-slate-700 hover:border-cyan-500 inline-flex uppercase tracking-widest text-xs font-medium"
-                >
-                  <Download size={14} />
-                  <span>Resume PDF</span>
-                </a>
-              </div>
-            </motion.div>
+              {/* Close Button */}
+              <button 
+                onClick={() => setIsMenuOpen(false)}
+                className="absolute top-8 right-8 md:right-12 flex items-center space-x-2 text-white font-bold uppercase tracking-widest text-sm hover:text-cyan-400 transition-colors z-10"
+              >
+                <span>Close</span>
+                <X size={24} strokeWidth={3} />
+              </button>
 
-          </motion.div>
+              {/* Links List */}
+              <div className="flex flex-col space-y-4 md:space-y-6">
+                {navLinks.map((link, i) => (
+                  <motion.a
+                    key={link.name}
+                    href={link.href}
+                    custom={i}
+                    variants={linkVariants}
+                    initial="initial"
+                    animate="animate"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="group flex flex-row items-start text-5xl md:text-6xl lg:text-7xl font-black text-white hover:text-cyan-400 transition-colors w-max tracking-tighter"
+                  >
+                    {link.name}
+                    <span className="text-sm md:text-lg font-normal ml-4 mt-2 md:mt-3 text-slate-500 group-hover:text-cyan-400 transition-colors">
+                      {link.num}
+                    </span>
+                  </motion.a>
+                ))}
+              </div>
+
+              {/* Socials & Resume */}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { delay: 0.9, duration: 1 } }}
+                className="absolute bottom-12 left-10 md:left-16 lg:left-24 text-slate-400 text-sm flex flex-col xl:flex-row xl:items-center gap-8 xl:gap-12"
+              >
+                <div>
+                  <p className="mb-4 text-slate-600 uppercase tracking-widest text-xs font-bold">Socials</p>
+                  <div className="flex space-x-6 uppercase tracking-widest text-xs font-medium">
+                    <a href="#" className="hover:text-cyan-400 transition-colors">LinkedIn</a>
+                    <a href="#" className="hover:text-cyan-400 transition-colors">GitHub</a>
+                    <a href="#" className="hover:text-cyan-400 transition-colors">Twitter</a>
+                  </div>
+                </div>
+                
+                <div>
+                  <p className="mb-4 text-slate-600 uppercase tracking-widest text-xs font-bold">Download</p>
+                  <a 
+                    href="/resume.pdf" target="_blank" rel="noreferrer"
+                    className="flex items-center space-x-2 text-white bg-slate-800/50 hover:bg-cyan-500/20 hover:text-cyan-400 px-4 py-2 rounded-lg transition-all border border-slate-700 hover:border-cyan-500 inline-flex uppercase tracking-widest text-xs font-medium"
+                  >
+                    <Download size={14} />
+                    <span>Resume PDF</span>
+                  </a>
+                </div>
+              </motion.div>
+
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>
