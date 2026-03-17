@@ -36,14 +36,14 @@ function App() {
     const logo = document.getElementById("main-animated-logo");
     if (!logo) return;
     
-    // We animate from huge centered text down to the navbar slot
+    // We animate from huge left-aligned text down to the navbar slot
     gsap.fromTo(logo, 
     {
-      x: "50vw",
-      y: "50vh",
-      xPercent: -50,
+      x: "5vw",
+      y: "40vh",
+      xPercent: 0,
       yPercent: -50,
-      scale: window.innerWidth < 768 ? 4 : 8,
+      scale: window.innerWidth < 768 ? 3 : 6,
     },
     {
       x: () => {
