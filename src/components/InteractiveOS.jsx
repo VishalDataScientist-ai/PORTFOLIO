@@ -3,6 +3,7 @@ import { Play } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import LogoLoop from './ui/LogoLoop';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,6 +66,15 @@ const InteractiveOS = () => {
     { bg: "bg-yellow-500", top: "70%", left: "15%", delay: 1 },
     { bg: "bg-purple-600", top: "60%", left: "85%", delay: 2 },
     { bg: "bg-fuchsia-500", top: "85%", left: "75%", delay: 3 },
+  ];
+
+  const techStackClasses = "font-extrabold text-white text-3xl tracking-tighter mix-blend-overlay opacity-40";
+  const techLogos = [
+    { node: <span className={techStackClasses}>Power BI</span> },
+    { node: <span className={techStackClasses}>Python</span> },
+    { node: <span className={techStackClasses}>SQL</span> },
+    { node: <span className={techStackClasses}>Excel</span> },
+    { node: <span className={techStackClasses}>Tableau</span> },
   ];
 
   return (
@@ -142,11 +152,17 @@ const InteractiveOS = () => {
                 I'm Vishal. A business analyst blending hard-core logic with strategic aesthetics. I build analytical solutions that are scalable, insightful, and stupidly good-looking.
               </p>
 
-              {/* Fake Logos / Tech stack placeholder at bottom */}
-              <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 flex items-center space-x-6 opacity-40 grayscale">
-                <span className="font-extrabold text-white text-lg tracking-tighter mix-blend-overlay">Power BI</span>
-                <span className="font-bold text-white text-lg tracking-tighter mix-blend-overlay">Python</span>
-                <span className="font-bold text-white text-lg tracking-tighter mix-blend-overlay">SQL</span>
+              {/* Tech Stack Marquee at bottom */}
+              <div className="absolute bottom-6 md:bottom-10 right-0 w-full md:w-2/3 pointer-events-none fade-edges">
+                <LogoLoop 
+                  logos={techLogos} 
+                  speed={30} 
+                  direction="left" 
+                  gap={40} 
+                  logoHeight={40} 
+                  fadeOut={true}
+                  fadeOutColor="transparent"
+                />
               </div>
 
             </div>
