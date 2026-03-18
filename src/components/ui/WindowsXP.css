@@ -1,0 +1,147 @@
+/* Windows XP Emulator Custom Styles */
+
+.wb-body {
+  background: #3a6ea5 url('https://upload.wikimedia.org/wikipedia/en/2/27/Bliss_%28Windows_XP%29.png') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden !important;
+  font-family: Tahoma, 'Segoe UI', Arial, sans-serif;
+  color: white;
+  border-radius: 0 0 3px 3px;
+}
+
+/* Winbox theme customization for XP layout */
+.modern.xp-theme {
+  background: linear-gradient(to bottom, #0058e6 0%, #3a93ff 8%, #288dfa 40%, #1276ea 88%, #035ce4 100%);
+  border: 1px solid #00138c;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), inset 1px 0 1px rgba(255, 255, 255, 0.4), 0 0 10px rgba(0,0,0,0.5);
+  border-radius: 8px 8px 0 0;
+}
+
+.modern.xp-theme .wb-title {
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  font-weight: bold;
+  font-size: 13px;
+  font-family: Trebuchet MS, Tahoma, sans-serif;
+  padding-left: 24px;
+}
+
+.modern.xp-theme .wb-icon {
+  filter: invert(1);
+}
+
+.modern.xp-theme .wb-close {
+  background-color: #e04343;
+  border-radius: 3px;
+  margin-top: 2px;
+  margin-right: 4px;
+}
+.modern.xp-theme .wb-close:hover {
+  background-color: #ff6666;
+}
+
+/* XP Desktop Layout Inside the Winbox */
+.xp-desktop {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 10px;
+}
+
+.xp-icon-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 90px;
+}
+
+.xp-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.xp-icon img {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.5));
+  margin-bottom: 4px;
+}
+
+.xp-icon span {
+  font-size: 11px;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  background-color: transparent;
+  padding: 2px 4px;
+  border-radius: 2px;
+  max-width: 80px;
+}
+
+.xp-icon:hover span {
+  background-color: rgba(0, 88, 230, 0.6);
+  color: white;
+}
+
+/* XP Taskbar */
+.xp-taskbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(to bottom, #245edb 0%, #3f8cf3 9%, #245edb 18%, #245edb 92%, #333 100%);
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  border-top: 1px solid #1444b0;
+}
+
+.xp-start-button {
+  height: 100%;
+  background: linear-gradient(to bottom, #3f9040 0%, #4da548 10%, #357a31 100%);
+  border: none;
+  border-radius: 0 10px 10px 0;
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+  font-family: Tahoma, sans-serif;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px 0 10px;
+  box-shadow: inset 1px 1px 1px rgba(255,255,255,0.4), 2px 0 4px rgba(0,0,0,0.4);
+  cursor: pointer;
+}
+
+.xp-start-button img {
+  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.4));
+}
+
+.xp-start-button:hover {
+  background: linear-gradient(to bottom, #49ad4b 0%, #5bcc55 10%, #41963c 100%);
+}
+
+.xp-task-divider {
+  flex-grow: 1;
+}
+
+.xp-system-tray {
+  height: 100%;
+  background: linear-gradient(to bottom, #0c59b9 0%, #139ee9 10%, #18b5f2 40%, #0c59b9 100%);
+  border-left: 1px solid #00138c;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 1px 0 1px rgba(255,255,255,0.2);
+}
+
+.xp-clock {
+  font-size: 11px;
+  color: white;
+  font-weight: normal;
+}

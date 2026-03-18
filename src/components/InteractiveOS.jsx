@@ -1,15 +1,17 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Play } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import LogoLoop from './ui/LogoLoop';
+import WindowsXP from './ui/WindowsXP';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const InteractiveOS = () => {
   const containerRef = useRef(null);
   const windowRef = useRef(null);
+  const [isXPOpen, setIsXPOpen] = useState(false);
 
   useGSAP(() => {
     // Scroll animation to scale up the OS window as we scroll down
@@ -180,7 +182,10 @@ const InteractiveOS = () => {
               Interactive OS Portfolio
             </p>
             
-            <button className="group/btn relative flex items-center space-x-3 bg-white text-black px-8 py-4 rounded-full font-bold text-sm overflow-hidden transition-transform hover:scale-105 active:scale-95 cursor-none">
+            <button 
+              onClick={() => setIsXPOpen(true)}
+              className="group/btn relative flex items-center space-x-3 bg-white text-black px-8 py-4 rounded-full font-bold text-sm overflow-hidden transition-transform hover:scale-105 active:scale-95 cursor-none"
+            >
               <div className="absolute inset-0 bg-cyan-400 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 ease-out z-0"></div>
               <Play size={16} className="fill-current relative z-10" />
               <span className="relative z-10">LAUNCH SYSTEM</span>
@@ -197,6 +202,7 @@ const InteractiveOS = () => {
         </div>
       </div>
 
+      {isXPOpen && <WindowsXP onClose={() => setIsXPOpen(false)} />}
     </section>
   );
 };
