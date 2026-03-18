@@ -16,6 +16,30 @@ import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const AnimatedLogo = () => {
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <div id="main-animated-logo" className="fixed top-0 left-0 z-[70] pointer-events-none origin-top-left">
+       <a 
+         href="#" 
+         className={`flex items-center text-2xl font-black pointer-events-auto whitespace-nowrap origin-top-left transition-all duration-300 ${isScrolled ? 'text-slate-900' : 'bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-purple-600'}`} 
+         style={{ filter: isScrolled ? 'none' : 'drop-shadow(0 0 10px rgba(217,70,239,0.5))' }}
+       >
+         VISHAL.
+       </a>
+    </div>
+  );
+};
+
 function App() {
   useEffect(() => {
     const lenis = new Lenis({
@@ -73,12 +97,7 @@ function App() {
       <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-200 cursor-none relative overflow-x-hidden">
         <CustomCursor />
         
-        {/* Animated Fixed Logo */}
-        <div id="main-animated-logo" className="fixed top-0 left-0 z-[70] pointer-events-none origin-top-left">
-           <a href="#" className="flex items-center text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-purple-600 pointer-events-auto whitespace-nowrap origin-top-left" style={{ filter: 'drop-shadow(0 0 10px rgba(217,70,239,0.5))' }}>
-             VISHAL.
-           </a>
-        </div>
+        <AnimatedLogo />
 
         <Navbar />
         <main>
