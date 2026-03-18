@@ -171,25 +171,38 @@ const InteractiveOS = () => {
           {/* ----- HOVER STATE (Launcher View) ----- */}
           <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 pointer-events-none group-hover:pointer-events-auto bg-[#0a0a0a]">
             
-            <h3 className="text-3xl md:text-5xl lg:text-6xl font-medium text-white mb-4 tracking-tight drop-shadow-xl">
-              enter the <span className="text-cyan-400 font-serif italic pr-2">experience.</span>
-            </h3>
+            {/* Windows XP Branding */}
+            <div className="flex flex-col items-center mb-8 drop-shadow-2xl">
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Windows_logo_-_2001.svg/500px-Windows_logo_-_2001.svg.png" 
+                alt="Windows XP" 
+                className="w-24 md:w-32 mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+              />
+              <div className="flex flex-row items-baseline space-x-3 md:space-x-4">
+                <h3 className="text-4xl md:text-6xl text-white font-medium tracking-tighter">
+                  Windows
+                </h3>
+                <span className="text-4xl md:text-6xl text-orange-500 font-medium italic">
+                  xp
+                </span>
+              </div>
+            </div>
             
-            <p className="text-slate-500 tracking-[0.3em] text-[10px] md:text-xs font-bold uppercase mb-12">
-              Interactive OS Portfolio
+            <p className="text-slate-400 tracking-[0.2em] text-[10px] md:text-xs font-bold uppercase mb-12">
+              System standing by. Click to boot OS.
             </p>
             
             <button 
               onClick={() => setIsXPOpen(true)}
-              className="group/btn relative flex items-center space-x-3 bg-white text-black px-8 py-4 rounded-full font-bold text-sm overflow-hidden transition-transform hover:scale-105 active:scale-95 cursor-none"
+              className="group/btn relative flex items-center space-x-3 bg-blue-600 border border-blue-400 text-white px-8 py-4 rounded-xl font-bold text-lg overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(37,99,235,0.4)] cursor-pointer"
             >
-              <div className="absolute inset-0 bg-cyan-400 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 ease-out z-0"></div>
-              <Play size={16} className="fill-current relative z-10" />
-              <span className="relative z-10">LAUNCH SYSTEM</span>
+              <div className="absolute inset-0 bg-blue-500 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 ease-out z-0"></div>
+              <Play size={20} className="fill-current relative z-10" />
+              <span className="relative z-10 tracking-wide font-sans">BOOT SYSTEM</span>
             </button>
             
             {/* Minimalist Loading Ring */}
-            <div className="mt-12 w-8 h-8 rounded-full border-2 border-slate-800 border-t-slate-300 animate-spin"></div>
+            <div className="mt-12 w-8 h-8 rounded-full border-2 border-slate-800 border-t-blue-500 animate-spin"></div>
           </div>
 
           {/* Fake OS Status Bar */}
