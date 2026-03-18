@@ -28,7 +28,7 @@ const AnimatedLogo = () => {
   }, []);
 
   return (
-    <div id="main-animated-logo" className="fixed top-0 left-0 z-[70] pointer-events-none origin-top-left">
+    <div id="main-animated-logo" className="fixed top-0 left-0 z-[90] pointer-events-none origin-top-left">
        <a 
          href="#" 
          className={`flex items-center text-2xl font-black pointer-events-auto whitespace-nowrap origin-top-left transition-all duration-300 ${isScrolled ? 'text-slate-900' : 'bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-purple-600'}`} 
