@@ -8,6 +8,7 @@ import Experience from './components/Experience';
 import ValueProposition from './components/ValueProposition';
 import Contact from './components/Contact';
 import CustomCursor from './components/CustomCursor';
+import InteractiveOS from './components/InteractiveOS';
 import { ThemeProvider } from 'next-themes';
 import Lenis from 'lenis';
 import gsap from 'gsap';
@@ -103,6 +104,7 @@ function App() {
         <main>
           <Hero />
           <About />
+          <InteractiveOS />
           <ValueProposition />
           <Skills />
           <Projects />
