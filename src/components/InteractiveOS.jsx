@@ -152,7 +152,7 @@ const InteractiveOS = () => {
               </p>
 
               {/* Tech Stack Marquee at bottom */}
-              <div className="absolute bottom-6 md:bottom-10 right-0 md:right-8 lg:right-12 w-full md:w-[45%] pointer-events-none fade-edges">
+              <div className="absolute bottom-2 md:bottom-4 right-0 md:right-8 lg:right-12 w-full md:w-[45%] pointer-events-none fade-edges">
                 <LogoLoop 
                   logos={techLogos} 
                   speed={30} 
