@@ -22,24 +22,22 @@ const CustomCursor = () => {
   }, []);
 
   useEffect(() => {
-    // Add event listeners to all interactive elements to change cursor state
-    const handleMouseOver = () => setCursorVariant("hover");
-    const handleMouseLeave = () => setCursorVariant("default");
+    // Add event listener to window to handle dynamic elements (like the mobile menu)
+    const handleMouseOver = (e) => {
+      // Check if we are hovering over an interactive element or its children
+      if (e.target.closest('a, button, input, textarea, [role="button"]')) {
+        setCursorVariant("hover");
+      } else {
+        setCursorVariant("default");
+      }
+    };
 
-    const interactiveElements = document.querySelectorAll('a, button, input, textarea, [role="button"]');
-    
-    interactiveElements.forEach(el => {
-      el.addEventListener("mouseenter", handleMouseOver);
-      el.addEventListener("mouseleave", handleMouseLeave);
-    });
+    window.addEventListener("mouseover", handleMouseOver);
 
     return () => {
-      interactiveElements.forEach(el => {
-        el.removeEventListener("mouseenter", handleMouseOver);
-        el.removeEventListener("mouseleave", handleMouseLeave);
-      });
+      window.removeEventListener("mouseover", handleMouseOver);
     };
-  }, []); // Note: In a fully dynamic app, you might need observed mutations or re-runs
+  }, []);
 
   const variants = {
     default: {
@@ -48,8 +46,7 @@ const CustomCursor = () => {
       height: 48,
       width: 48,
       backgroundColor: "transparent",
-      border: "2px solid rgba(255, 255, 255, 0.4)",
-      mixBlendMode: "difference",
+      border: "1px solid rgba(255, 255, 255, 0.5)",
       scale: 1,
       transition: {
         type: "spring",
@@ -63,10 +60,9 @@ const CustomCursor = () => {
       y: position.y - 40,
       height: 80,
       width: 80,
-      backgroundColor: "rgba(255, 255, 255, 1)",
-      border: "2px solid rgba(255, 255, 255, 1)",
-      mixBlendMode: "difference",
-      scale: 1, // Let width/height handle the size
+      backgroundColor: "transparent",
+      border: "1px solid rgba(255, 255, 255, 0.2)",
+      scale: 1,
       transition: {
         type: "spring",
         mass: 0.1,
@@ -84,14 +80,13 @@ const CustomCursor = () => {
       height: 8,
       width: 8,
       backgroundColor: "rgba(255, 255, 255, 1)",
-      mixBlendMode: "difference",
     },
     hover: {
-      x: position.x - 0, 
-      y: position.y - 0,
-      height: 0,
-      width: 0,
-      opacity: 0
+      x: position.x - 40, // Expands to 80px
+      y: position.y - 40,
+      height: 80,
+      width: 80,
+      backgroundColor: "rgba(255, 255, 255, 0.15)", // Transparent fill
     }
   };
 
@@ -99,35 +94,29 @@ const CustomCursor = () => {
   useEffect(() => {
     document.body.style.cursor = 'none';
     
-    // Safety check - re-enable default cursor for interactive elements just in case,
-    // though global 'none' usually overrides. Better to apply 'none' globally 
-    // and let the custom cursor do the work.
-    const interactiveElements = document.querySelectorAll('a, button, input, textarea');
-    interactiveElements.forEach(el => {
-      el.style.cursor = 'none';
-    });
+    // Add a single style block to ensure global cursor hiding
+    const style = document.createElement('style');
+    style.innerHTML = `* { cursor: none !important; }`;
+    document.head.appendChild(style);
     
     return () => {
       document.body.style.cursor = 'auto';
-      interactiveElements.forEach(el => {
-        el.style.cursor = 'pointer';
-      });
+      document.head.removeChild(style);
     };
   }, []);
 
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[100] hidden md:block"
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] hidden md:flex items-center justify-center backdrop-blur-[1px]"
         variants={variants}
         animate={cursorVariant}
       />
       <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[100] hidden md:block"
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] hidden md:block"
         variants={dotVariants}
         animate={cursorVariant}
-        // Ensure the dot follows instantly without spring physics for precise pointing
-        transition={{ type: "tween", duration: 0 }}
+        transition={{ type: "tween", duration: 0.15 }}
       />
     </>
   );
