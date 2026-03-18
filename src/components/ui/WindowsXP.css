@@ -1,8 +1,8 @@
 /* Windows XP Emulator Custom Styles */
 
-.wb-body {
-  background: #3a6ea5 url('https://upload.wikimedia.org/wikipedia/en/2/27/Bliss_%28Windows_XP%29.png') no-repeat center center;
-  background-size: cover;
+.modern.xp-theme .wb-body {
+  background: #3a6ea5 url('https://upload.wikimedia.org/wikipedia/en/2/27/Bliss_%28Windows_XP%29.png') no-repeat center center !important;
+  background-size: cover !important;
   position: relative;
   overflow: hidden !important;
   font-family: Tahoma, 'Segoe UI', Arial, sans-serif;

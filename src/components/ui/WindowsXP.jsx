@@ -12,7 +12,7 @@ const WindowsXP = ({ onClose }) => {
     // Only mount winbox once on client side
     if (typeof window !== 'undefined' && !winboxRef.current && containerRef.current) {
       winboxRef.current = new WinBox({
-        title: 'Portfolio OS - Windows XP',
+        title: "Vishal's Portfolio Windows XP",
         width: '80%',
         height: '80%',
         x: 'center',
