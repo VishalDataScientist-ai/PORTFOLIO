@@ -153,7 +153,7 @@ const InteractiveOS = () => {
               </p>
 
               {/* Tech Stack Marquee at bottom */}
-              <div className="absolute bottom-6 md:bottom-10 right-0 w-full md:w-2/3 pointer-events-none fade-edges">
+              <div className="absolute bottom-6 md:bottom-10 right-0 md:right-8 lg:right-12 w-full md:w-[45%] pointer-events-none fade-edges">
                 <LogoLoop 
                   logos={techLogos} 
                   speed={30} 
@@ -161,7 +161,7 @@ const InteractiveOS = () => {
                   gap={40} 
                   logoHeight={40} 
                   fadeOut={true}
-                  fadeOutColor="transparent"
+                  fadeOutColor="#0a0a0a"
                 />
               </div>
 
