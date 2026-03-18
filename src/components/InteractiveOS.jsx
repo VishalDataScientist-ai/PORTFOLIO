@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import LogoLoop from './ui/LogoLoop';
 import WindowsXP from './ui/WindowsXP';
+import RealisticGlobe from './ui/RealisticGlobe';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -116,12 +117,8 @@ const InteractiveOS = () => {
             
             {/* Left Side: Globe & Global Reach */}
             <div className="relative w-full md:w-1/2 h-full flex items-center justify-center border-b md:border-b-0 md:border-r border-slate-800/50 p-8">
-              {/* CSS Globe Mockup */}
-              <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-[radial-gradient(circle_at_30%_30%,#1e3a8a_0%,#000000_80%)] shadow-[inset_-20px_-20px_40px_rgba(0,0,0,0.8),0_0_30px_rgba(30,58,138,0.3)] relative overflow-hidden border border-slate-800 hover:scale-105 transition-transform duration-700">
-                 {/* Pseudo landmass textures */}
-                 <div className="absolute top-1/4 left-1/4 w-20 h-20 bg-blue-400/20 blur-xl rounded-full mix-blend-screen"></div>
-                 <div className="absolute bottom-1/4 right-1/4 w-24 h-16 bg-blue-300/10 blur-xl rounded-full mix-blend-screen"></div>
-              </div>
+              {/* Realistic 3D Globe */}
+              <RealisticGlobe />
 
               {/* Global Reach Label */}
               <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 flex flex-col items-start">
