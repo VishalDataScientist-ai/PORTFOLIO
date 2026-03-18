@@ -6,8 +6,6 @@ import { hyperspeedPresets } from './ui/HyperSpeedPresets';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
-import ASCIIText from './ui/ASCIIText';
-
 const Hero = () => {
   const containerRef = useRef(null);
 
@@ -62,18 +60,12 @@ const Hero = () => {
             BCA Student & Aspiring Professional
           </motion.span>
           
-          <motion.div 
+          <motion.h2 
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } }}
-            className="w-full relative h-[60px] md:h-[80px] lg:h-[120px] mb-6"
+            className="text-2xl md:text-3xl lg:text-4xl font-medium text-slate-300 mb-6 drop-shadow-lg leading-tight"
           >
-            <ASCIIText 
-              text="Business Analyst | Data Strategy" 
-              enableWaves={true} 
-              asciiFontSize={8} 
-              textFontSize={150}
-              textColor="#ffffff"
-            />
-          </motion.div>
+            Business Analyst | Data & Sales Strategy Enthusiast
+          </motion.h2>
           
           <motion.p 
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } }}
