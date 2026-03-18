@@ -43,10 +43,13 @@ const CustomCursor = () => {
 
   const variants = {
     default: {
-      x: position.x - 16, // Center the 32px circle
-      y: position.y - 16,
-      backgroundColor: "rgba(37, 99, 235, 0.1)", // blue-600 with low opacity
-      border: "1px solid rgba(37, 99, 235, 0.3)",
+      x: position.x - 24, // Center the 48px circle
+      y: position.y - 24,
+      height: 48,
+      width: 48,
+      backgroundColor: "transparent",
+      border: "2px solid rgba(255, 255, 255, 0.4)",
+      mixBlendMode: "difference",
       scale: 1,
       transition: {
         type: "spring",
@@ -56,14 +59,14 @@ const CustomCursor = () => {
       }
     },
     hover: {
-      x: position.x - 24, // Center the 48px circle
-      y: position.y - 24,
-      height: 48,
-      width: 48,
-      backgroundColor: "rgba(37, 99, 235, 0.05)",
-      border: "1px solid rgba(37, 99, 235, 0.5)",
-      scale: 1.2, // Slightly larger on hover
-      mixBlendMode: "multiply",
+      x: position.x - 40, // Center the 80px circle
+      y: position.y - 40,
+      height: 80,
+      width: 80,
+      backgroundColor: "rgba(255, 255, 255, 1)",
+      border: "2px solid rgba(255, 255, 255, 1)",
+      mixBlendMode: "difference",
+      scale: 1, // Let width/height handle the size
       transition: {
         type: "spring",
         mass: 0.1,
@@ -78,6 +81,17 @@ const CustomCursor = () => {
     default: {
       x: position.x - 4, // Center the 8px dot
       y: position.y - 4,
+      height: 8,
+      width: 8,
+      backgroundColor: "rgba(255, 255, 255, 1)",
+      mixBlendMode: "difference",
+    },
+    hover: {
+      x: position.x - 0, 
+      y: position.y - 0,
+      height: 0,
+      width: 0,
+      opacity: 0
     }
   };
 
@@ -104,14 +118,14 @@ const CustomCursor = () => {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[100] hidden md:block"
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-[100] hidden md:block"
         variants={variants}
         animate={cursorVariant}
       />
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 bg-blue-600 rounded-full pointer-events-none z-[100] hidden md:block"
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-[100] hidden md:block"
         variants={dotVariants}
-        animate="default"
+        animate={cursorVariant}
         // Ensure the dot follows instantly without spring physics for precise pointing
         transition={{ type: "tween", duration: 0 }}
       />
