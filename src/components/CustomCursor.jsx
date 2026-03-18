@@ -80,13 +80,15 @@ const CustomCursor = () => {
       height: 24,
       width: 24,
       backgroundColor: "rgba(255, 255, 255, 1)",
+      mixBlendMode: "normal",
     },
     hover: {
       x: position.x - 40, // Expands to 80px
       y: position.y - 40,
       height: 80,
       width: 80,
-      backgroundColor: "rgba(255, 255, 255, 0.15)", // Transparent fill
+      backgroundColor: "rgba(255, 255, 255, 1)", // Solid white for difference inversion
+      mixBlendMode: "difference",
     }
   };
 
@@ -108,7 +110,7 @@ const CustomCursor = () => {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] hidden md:flex items-center justify-center backdrop-blur-[1px]"
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] hidden md:flex items-center justify-center"
         variants={variants}
         animate={cursorVariant}
       />
