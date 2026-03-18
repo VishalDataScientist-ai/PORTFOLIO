@@ -75,10 +75,10 @@ const CustomCursor = () => {
   // Center dot that closely follows cursor
   const dotVariants = {
     default: {
-      x: position.x - 4, // Center the 8px dot
-      y: position.y - 4,
-      height: 8,
-      width: 8,
+      x: position.x - 6, // Center the 12px dot
+      y: position.y - 6,
+      height: 12,
+      width: 12,
       backgroundColor: "rgba(255, 255, 255, 1)",
     },
     hover: {
