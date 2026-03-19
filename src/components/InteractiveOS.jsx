@@ -15,17 +15,21 @@ const InteractiveOS = () => {
   const [isXPOpen, setIsXPOpen] = useState(false);
 
   useGSAP(() => {
-    // Scroll animation to scale up the OS window as we scroll down
+    // Scroll animation to scale up the OS window and tilt as we scroll down
     gsap.fromTo(windowRef.current, 
       {
         scale: 0.8,
         y: 150,
         opacity: 0,
+        rotationX: 15,
+        rotationY: -5,
       },
       {
         scale: 1,
         y: 0,
         opacity: 1,
+        rotationX: 0,
+        rotationY: 0,
         ease: "power2.out",
         scrollTrigger: {
           trigger: containerRef.current,
@@ -103,10 +107,11 @@ const InteractiveOS = () => {
       </div>
 
       {/* Sticky OS Window */}
-      <div className="sticky top-24 w-full max-w-5xl px-4 md:px-8 z-10 h-[70vh] flex items-center justify-center">
+      <div className="sticky top-24 w-full max-w-5xl px-4 md:px-8 z-10 h-[70vh] flex items-center justify-center" style={{ perspective: '1200px' }}>
         <div 
           ref={windowRef}
           className="w-full h-full bg-[#0a0a0a] rounded-3xl sm:rounded-[2.5rem] border border-slate-800 shadow-[0_0_100px_rgba(0,0,0,0.9)] flex items-center justify-center relative overflow-hidden group"
+          style={{ transformStyle: 'preserve-3d' }}
         >
           {/* Inner Glare / Bezel reflection */}
           <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/[0.03] to-transparent pointer-events-none z-30"></div>

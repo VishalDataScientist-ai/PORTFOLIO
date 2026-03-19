@@ -11,6 +11,7 @@ const WindowsXP = ({ onClose }) => {
   const [mountNode, setMountNode] = useState(null);
   
   // Interactive OS State
+  const [isLocked, setIsLocked] = useState(true);
   const [startOpen, setStartOpen] = useState(false);
   const [time, setTime] = useState("");
 
@@ -77,77 +78,67 @@ const WindowsXP = ({ onClose }) => {
     });
   };
 
+  const lockScreenContent = (
+    <div className="xp-lock-screen" style={{
+      width: '100%', height: '100%', 
+      backgroundImage: 'url("https://images.unsplash.com/photo-1554629947-334ff61d85dc?q=80&w=2000&auto=format&fit=crop")',
+      backgroundSize: 'cover', backgroundPosition: 'center',
+      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyItems: 'center', justifyContent: 'center',
+      color: 'white', fontFamily: '"Segoe UI", sans-serif',
+      position: 'absolute', top: 0, left: 0, zIndex: 1000
+    }}>
+      <div style={{ backdropFilter: 'blur(15px) brightness(0.6)', width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <img src="https://images.unsplash.com/photo-1497793138814-180a31623fcb?w=400&h=400&fit=crop" style={{ width: 180, height: 180, borderRadius: '50%', border: '4px solid rgba(255,255,255,0.2)', marginBottom: 20, boxShadow: '0 4px 20px rgba(0,0,0,0.5)', objectFit: 'cover' }} alt="Profile" />
+        <h2 style={{ fontSize: 42, marginBottom: 30, textShadow: '0 2px 10px rgba(0,0,0,0.8)', fontWeight: 400 }}>Yash Patil</h2>
+        <button onClick={() => setIsLocked(false)} style={{ padding: '8px 40px', fontSize: 16, background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.4)', color: 'white', borderRadius: 4, cursor: 'pointer', transition: 'all 0.3s' }} onMouseOver={e=>e.target.style.background='rgba(255,255,255,0.2)'} onMouseOut={e=>e.target.style.background='rgba(255,255,255,0.1)'}>
+          Sign in
+        </button>
+      </div>
+    </div>
+  );
+
   const desktopContent = (
-    <div className="xp-desktop" onClick={() => setStartOpen(false)}>
+    <div className="xp-desktop" onClick={() => setStartOpen(false)} style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1545431780-8b1e4a5db3ad?q=80&w=2000&auto=format&fit=crop")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      
+      {isLocked && lockScreenContent}
       
       {/* Desktop Icons */}
-      <div className="xp-icon-grid">
-        <div className="xp-icon" onDoubleClick={() => openApp("My Computer", `
-          <div class="xp-folder">
-            <h3>System Drives</h3>
-            <ul>
-              <li><img src="https://win98icons.alexmeub.com/icons/png/hard_disk_drive-5.png" width="32" /> Local Disk (C:)</li>
-              <li><img src="https://win98icons.alexmeub.com/icons/png/cd_drive-4.png" width="32" /> DVD Drive (D:)</li>
-            </ul>
-          </div>
-        `)}>
-          <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-5.png" alt="My Computer" />
-          <span>My Computer</span>
+      {!isLocked && (
+      <div className="xp-icon-grid" style={{ display: 'flex', flexDirection: 'column', gap: '20px', padding: '20px', alignItems: 'flex-start' }}>
+        <div className="xp-icon" onDoubleClick={() => openApp("About Me", `<div style="padding:20px"><h3>About Me</h3><p>I blend critical analysis with aesthetic execution.</p></div>`)}>
+          <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" alt="About Me" />
+          <span style={{color: 'white', textShadow: '1px 1px 2px black'}}>About Me</span>
         </div>
         
-        <div className="xp-icon" onDoubleClick={() => openApp("My Documents", `
-          <div class="xp-folder">
-            <h3>Documents</h3>
-            <ul>
-              <li><img src="https://win98icons.alexmeub.com/icons/png/document_wordpad-4.png" width="32" /> Resume.pdf</li>
-              <li><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" width="32" /> Projects</li>
-              <li><img src="https://win98icons.alexmeub.com/icons/png/image_gif-2.png" width="32" /> Data_Viz.png</li>
-            </ul>
-          </div>
-        `)}>
-          <img src="https://win98icons.alexmeub.com/icons/png/directory_explorer-5.png" alt="My Documents" />
-          <span>My Documents</span>
+        <div className="xp-icon" onDoubleClick={() => openApp("My Projects", `<div style="padding:20px"><h3>My Projects</h3><ul><li>Analytics Tool</li><li>React Web Apps</li></ul></div>`)}>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="My Projects" style={{width: 32, height: 32}} />
+          <span style={{color: 'white', textShadow: '1px 1px 2px black'}}>My Projects</span>
         </div>
         
-        <div className="xp-icon" onDoubleClick={() => openApp("Recycle Bin", `
-          <div style="display:flex; height:100%; align-items:center; justify-content:center; color: #777;">
-            Recycle Bin is empty.
-          </div>
-        `)}>
-          <img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_empty-4.png" alt="Recycle Bin" />
-          <span>Recycle Bin</span>
+        <div className="xp-icon" onDoubleClick={() => openApp("Experience", `<div style="padding:20px"><h3>Experience</h3><p>Building scalable insights.</p></div>`)}>
+          <img src="https://win98icons.alexmeub.com/icons/png/directory_explorer-5.png" alt="Experience" />
+          <span style={{color: 'white', textShadow: '1px 1px 2px black'}}>Experience</span>
         </div>
         
-        <div className="xp-icon" onDoubleClick={() => openApp("Internet Explorer", `
-          <div class="xp-browser">
-            <h1>Error 404</h1>
-            <p>The page you are looking for might have been removed or is temporarily unavailable.</p>
-            <p>Please check your internet connection.</p>
-          </div>
-        `)}>
-          <img src="https://win98icons.alexmeub.com/icons/png/msie1-2.png" alt="Internet Explorer" />
-          <span>Internet Explorer</span>
+        <div className="xp-icon" onDoubleClick={() => openApp("Contact", `<div style="padding:20px"><h3>Contact</h3><p>Shoot me an email.</p></div>`)}>
+          <img src="https://win98icons.alexmeub.com/icons/png/message_envelope_open-0.png" alt="Contact" />
+          <span style={{color: 'white', textShadow: '1px 1px 2px black'}}>Contact</span>
         </div>
         
-        <div className="xp-icon" onDoubleClick={() => openApp("Data Analysis Tool", `
-          <div class="xp-folder">
-             <h3>Running Analytics Scripts...</h3>
-             <pre style="background: black; color: lime; padding: 10px; font-size: 12px; margin-top: 10px;">
-> Loading dataset...
-> Cleansing records... OK!
-> Applying Random Forest Model...
-> Accuracy: 98.4%
-> Outputting Dashboard to UI...
-             </pre>
-          </div>
-        `)}>
-          <img src="https://win98icons.alexmeub.com/icons/png/calculator-0.png" alt="Terminal" />
-          <span>Analytics.exe</span>
+        <div className="xp-icon" onDoubleClick={() => window.open('https://github.com/vishal', '_blank')}>
+          <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style={{width: 32, height: 32, borderRadius: 8, background: 'white', padding: 2}}/>
+          <span style={{color: 'white', textShadow: '1px 1px 2px black'}}>GitHub</span>
+        </div>
+        
+        <div className="xp-icon" onDoubleClick={() => openApp("Terminal", `<div style="padding:20px; background:black; color:lime; height:100%; border-radius:4px;"><pre>> Initiating terminal connection...<br/>> OK</pre></div>`)}>
+          <img src="https://win98icons.alexmeub.com/icons/png/console_prompt-0.png" alt="Terminal" />
+          <span style={{color: 'white', textShadow: '1px 1px 2px black'}}>Terminal</span>
         </div>
       </div>
+      )}
       
       {/* Start Menu */}
-      {startOpen && (
+      {!isLocked && startOpen && (
         <div className="xp-start-menu" onClick={e => e.stopPropagation()}>
           <div className="xp-start-header">
             <img src="https://win98icons.alexmeub.com/icons/png/user_computer-0.png" alt="User" className="xp-user-icon"/>
@@ -217,6 +208,7 @@ const WindowsXP = ({ onClose }) => {
       )}
 
       {/* Taskbar */}
+      {!isLocked && (
       <div className="xp-taskbar" onClick={e => e.stopPropagation()}>
         <button className={`xp-start-button ${startOpen ? 'active' : ''}`} onClick={() => setStartOpen(!startOpen)}>
           <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Windows_logo_-_2001.svg/100px-Windows_logo_-_2001.svg.png" width="16" alt="Start" />
@@ -228,6 +220,7 @@ const WindowsXP = ({ onClose }) => {
           <span className="xp-clock">{time}</span>
         </div>
       </div>
+      )}
     </div>
   );
 

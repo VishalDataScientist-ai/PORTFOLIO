@@ -23,7 +23,7 @@ const RealisticGlobe = () => {
             ref={globeRef}
             width={300}
             height={300}
-            globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
+            globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
             bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
             backgroundColor="rgba(0,0,0,0)" // Keep it fully transparent to blend into BG
             showAtmosphere={true}
