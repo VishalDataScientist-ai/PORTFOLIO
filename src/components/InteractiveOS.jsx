@@ -179,7 +179,7 @@ const InteractiveOS = () => {
             {/* Windows XP Branding */}
             <div className="flex flex-col items-center mb-8 drop-shadow-2xl">
               <img 
-                src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Windows_logo_-_2001.svg/500px-Windows_logo_-_2001.svg.png" 
+                src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Windows_logo_-_2001.svg" 
                 alt="Windows XP" 
                 className="w-24 md:w-32 mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
               />
