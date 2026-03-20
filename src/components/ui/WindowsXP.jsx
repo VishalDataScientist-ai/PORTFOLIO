@@ -211,8 +211,13 @@ const WindowsXP = ({ onClose }) => {
       {/* Taskbar */}
       <div className="xp-taskbar" onClick={e => e.stopPropagation()}>
         <button className={`xp-start-button ${startOpen ? 'active' : ''}`} onClick={() => setStartOpen(!startOpen)}>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Windows_logo_-_2001.svg" width="16" alt="Start" />
-          start
+          <svg style={{ filter: "drop-shadow(1px 1px 1px rgba(0,0,0,0.6))" }} width="20" height="20" viewBox="0 0 88 88">
+            <path d="M0 14L38 8V44H0V14Z" fill="#F86940" />
+            <path d="M42 7.5L88 0V44H42V7.5Z" fill="#80C65A" />
+            <path d="M0 46H38V82L0 76V46Z" fill="#44A3E8" />
+            <path d="M42 46H88V88L42 80V46Z" fill="#FEC22A" />
+          </svg>
+          <span className="pr-1 tracking-wider">start</span>
         </button>
         <div className="xp-task-divider"></div>
         <div className="xp-system-tray">

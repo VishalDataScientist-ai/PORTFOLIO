@@ -143,7 +143,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 30px;
+  height: 36px;
   background: linear-gradient(to bottom, #245edb 0%, #3f8cf3 9%, #245edb 18%, #245edb 92%, #333 100%);
   display: flex;
   align-items: center;
@@ -153,20 +153,21 @@
 
 .xp-start-button {
   height: 100%;
-  background: linear-gradient(to bottom, #3f9040 0%, #4da548 10%, #357a31 100%);
+  background: linear-gradient(to bottom, #3ca14a 0%, #4ebf5c 10%, #328b3d 100%);
   border: none;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 12px 12px 0;
   color: white;
-  font-weight: bold;
+  font-weight: 700;
   font-style: italic;
-  font-family: Tahoma, sans-serif;
-  font-size: 14px;
+  font-family: 'Franklin Gothic Medium', 'Trebuchet MS', Tahoma, sans-serif;
+  font-size: 18px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 0 16px 0 10px;
-  box-shadow: inset 1px 1px 1px rgba(255,255,255,0.4), 2px 0 4px rgba(0,0,0,0.4);
+  gap: 6px;
+  padding: 0 20px 0 12px;
+  box-shadow: inset 1px 1px 2px rgba(255,255,255,0.7), inset -1px -1px 2px rgba(0,0,0,0.3), 2px 0 4px rgba(0,0,0,0.4);
   cursor: pointer;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
   transition: all 0.1s;
 }
 
@@ -203,7 +204,7 @@
 /* Start Menu */
 .xp-start-menu {
   position: absolute;
-  bottom: 30px;
+  bottom: 36px;
   left: 0;
   width: 400px;
   background: #fff;
