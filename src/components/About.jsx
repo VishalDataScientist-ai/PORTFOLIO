@@ -16,11 +16,13 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="aspect-square max-w-md mx-auto relative rounded-3xl overflow-hidden shadow-2xl bg-white/10 border border-white/10">
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-indigo-50 flex items-center justify-center">
-                 {/* Replace with actual image later */}
-                 <span className="text-slate-400 font-medium text-lg tracking-widest uppercase">Profile Photo</span>
-              </div>
+            <div className="aspect-[4/5] max-w-sm mx-auto relative rounded-3xl overflow-hidden shadow-2xl bg-white/10 border border-white/10 group">
+              <img 
+                src="/profile.jpg" 
+                alt="Vishal Singh Profile" 
+                className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60 pointer-events-none"></div>
             </div>
             {/* Decorative element */}
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-600 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob"></div>
