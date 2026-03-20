@@ -1,0 +1,19 @@
+.lanyard-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50vw;
+  height: 100vh;
+  z-index: 20;
+  pointer-events: none;
+}
+.lanyard-wrapper canvas {
+  pointer-events: auto;
+}
+@media (max-width: 768px) {
+  .lanyard-wrapper {
+    width: 100vw;
+    height: 50vh;
+    top: 5vh;
+  }
+}

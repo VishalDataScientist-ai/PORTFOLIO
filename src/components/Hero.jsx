@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Download, Linkedin, Mail } from 'lucide-react';
 import Hyperspeed from './ui/Hyperspeed';
 import { hyperspeedPresets } from './ui/HyperSpeedPresets';
+import Lanyard from './ui/Lanyard';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
@@ -35,6 +36,8 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <Hyperspeed effectOptions={hyperspeedPresets.one} />
       </div>
+
+      <Lanyard />
 
       {/* Background decoration */}
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-cyan-500/20 blur-3xl pointer-events-none gsap-blob-1" />
