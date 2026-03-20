@@ -1,0 +1,151 @@
+.pc-card-wrapper {
+  position: relative;
+  perspective: 1200px;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  z-index: 10;
+  cursor: none; /* Let custom cursor handle everything */
+}
+
+.pc-behind {
+  position: absolute;
+  inset: -15px;
+  border-radius: 1.5rem;
+  background: var(--behind-glow-color, rgba(34, 211, 238, 0.4));
+  filter: blur(25px);
+  transform: scale(0.95);
+  opacity: 0.6;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 0;
+}
+.pc-card-wrapper:hover .pc-behind {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.pc-card-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  transform-style: preserve-3d;
+  transform: rotateY(var(--rotate-y, 0deg)) rotateX(var(--rotate-x, 0deg));
+  transition: transform 0.1s linear;
+  z-index: 5;
+}
+
+.pc-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: var(--inner-gradient);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.pc-inside {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.pc-avatar-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.pc-avatar-content .avatar {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: -1;
+  pointer-events: none;
+  transform: scale(1.05);
+  transition: transform 0.4s ease;
+}
+
+.pc-card-wrapper:hover .avatar {
+  transform: scale(1.1);
+}
+
+/* User Info overlay (Hidden if showUserInfo=false) */
+.pc-user-info {
+  display: none;
+}
+
+/* The name and role display container */
+.pc-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  pointer-events: none;
+  transform-style: preserve-3d;
+}
+
+.pc-details {
+  z-index: 10;
+  padding: 3rem 1.5rem 2rem 1.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+  text-align: center;
+  transform: translateZ(40px); /* 3D pop out effect */
+  transform-style: preserve-3d;
+}
+
+.pc-details h3 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: white;
+  margin: 0;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+  transform: translateZ(20px);
+}
+
+.pc-details p {
+  font-size: 1.1rem;
+  color: #38bdf8;
+  margin-top: 0.35rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transform: translateZ(10px);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+/* Lighting Effects connected to JS engine */
+.pc-shine {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 50%
+  );
+  z-index: 20;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.pc-glare {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 50%
+  );
+  opacity: calc(var(--pointer-from-center, 0) * 0.8);
+  z-index: 20;
+  pointer-events: none;
+}

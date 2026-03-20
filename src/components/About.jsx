@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, GraduationCap, Briefcase, Focus } from 'lucide-react';
+import ProfileCard from './ui/ProfileCard';
 
 const About = () => {
   return (
@@ -16,13 +17,17 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="aspect-[4/5] max-w-sm mx-auto relative rounded-3xl overflow-hidden shadow-2xl bg-white/10 border border-white/10 group">
-              <img 
-                src="/profile-full.jpg" 
-                alt="Vishal Singh Profile" 
-                className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+            <div className="aspect-[4/5] max-w-sm mx-auto relative rounded-3xl group">
+              <ProfileCard
+                name="Vishal Singh"
+                title="Business Analyst"
+                avatarUrl="/profile-full.jpg"
+                showUserInfo={false}
+                enableTilt={true}
+                enableMobileTilt={false}
+                behindGlowColor="rgba(34, 211, 238, 0.5)"
+                behindGlowEnabled={true}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60 pointer-events-none"></div>
             </div>
             {/* Decorative element */}
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-600 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob"></div>
