@@ -46,7 +46,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
   const vec = new THREE.Vector3(), ang = new THREE.Vector3(), rot = new THREE.Vector3(), dir = new THREE.Vector3();
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
   
-  const texture = useTexture('/profile.png');
+  const texture = useTexture('/profile.jpg');
   const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]));
   const [dragged, drag] = useState(false);
   const [hovered, hover] = useState(false);
@@ -134,7 +134,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
       </group>
       <mesh ref={band}>
         <meshLineGeometry />
-        <meshLineMaterial color="#3b82f6" depthTest={false} resolution={isMobile ? [1000, 2000] : [1000, 1000]} useMap={false} lineWidth={1.5} />
+        <meshLineMaterial color="#111" depthTest={false} resolution={isMobile ? [1000, 2000] : [1000, 1000]} useMap={false} lineWidth={1.5} />
       </mesh>
     </>
   );
