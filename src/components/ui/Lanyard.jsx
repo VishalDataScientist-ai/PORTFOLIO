@@ -46,7 +46,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
   const vec = new THREE.Vector3(), ang = new THREE.Vector3(), rot = new THREE.Vector3(), dir = new THREE.Vector3();
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
   
-  const texture = useTexture('/profile.jpg');
+  const [texture, bandTexture] = useTexture(['/profile.jpg', '/lanyard_texture.png']);
   const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]));
   const [dragged, drag] = useState(false);
   const [hovered, hover] = useState(false);
@@ -94,6 +94,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
 
   curve.curveType = 'chordal';
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+  bandTexture.wrapS = bandTexture.wrapT = THREE.RepeatWrapping;
 
   return (
     <>
@@ -134,7 +135,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
       </group>
       <mesh ref={band}>
         <meshLineGeometry />
-        <meshLineMaterial color="#22d3ee" depthTest={false} resolution={isMobile ? [1000, 2000] : [1000, 1000]} useMap={false} lineWidth={1} />
+        <meshLineMaterial color="white" depthTest={false} resolution={isMobile ? [1000, 2000] : [1000, 1000]} useMap={true} map={bandTexture} repeat={[-4, 1]} lineWidth={1} />
       </mesh>
     </>
   );
