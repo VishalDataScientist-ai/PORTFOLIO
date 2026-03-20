@@ -552,47 +552,39 @@ const ProfileCardComponent = ({
               className="max-h-full overflow-hidden text-center relative z-[5]"
               style={{
                 transform:
-                  'translate3d(calc(var(--pointer-from-left) * -6px + 3px), calc(var(--pointer-from-top) * -6px + 3px), 0.1px)',
-                mixBlendMode: 'luminosity',
+                  'translate3d(calc(var(--pointer-from-left) * -6px + 3px), calc(var(--pointer-from-top) * -6px + 3px), 40px)',
                 gridArea: '1 / -1',
                 borderRadius: cardRadius,
                 pointerEvents: 'none'
               }}
             >
-              <div className="w-full absolute flex flex-col" style={{ top: '3em', display: 'flex', gridArea: 'auto' }}>
+              <div className="w-full absolute flex flex-col pb-8 pt-16 bg-gradient-to-t from-black/90 via-black/40 to-transparent" style={{ bottom: '0', display: 'flex', gridArea: 'auto' }}>
                 <h3
-                  className="font-semibold m-0"
+                  className="font-black m-0"
                   style={{
-                    fontSize: 'min(5svh, 3em)',
-                    backgroundImage: 'linear-gradient(to bottom, #fff, #6f6fbe)',
-                    backgroundSize: '1em 1.5em',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
+                    fontSize: 'min(5svh, 2.5em)',
+                    color: 'white',
                     display: 'block',
                     gridArea: 'auto',
                     borderRadius: '0',
-                    pointerEvents: 'auto'
+                    pointerEvents: 'auto',
+                    textShadow: '0 4px 15px rgba(0,0,0,0.9)'
                   }}
                 >
                   {name}
                 </h3>
                 <p
-                  className="font-semibold whitespace-nowrap mx-auto w-min"
+                  className="font-bold whitespace-nowrap mx-auto w-min uppercase tracking-widest mt-1"
                   style={{
                     position: 'relative',
-                    top: '-12px',
-                    fontSize: '16px',
-                    margin: '0 auto',
-                    backgroundImage: 'linear-gradient(to bottom, #fff, #4a4ac0)',
-                    backgroundSize: '1em 1.5em',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
+                    fontSize: '15px',
+                    margin: '0.2em auto 0 auto',
+                    color: '#38bdf8',
                     display: 'block',
                     gridArea: 'auto',
                     borderRadius: '0',
-                    pointerEvents: 'auto'
+                    pointerEvents: 'auto',
+                    textShadow: '0 2px 10px rgba(0,0,0,0.9)'
                   }}
                 >
                   {title}
