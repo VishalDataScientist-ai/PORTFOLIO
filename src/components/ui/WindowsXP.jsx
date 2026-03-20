@@ -6,9 +6,7 @@ import 'winbox/dist/css/themes/modern.min.css';
 import './WindowsXP.css';
 
 const WindowsXP = ({ onClose }) => {
-  const winboxRef = useRef(null);
   const containerRef = useRef(null);
-  const [mountNode, setMountNode] = useState(null);
   
   // Interactive OS State
   const [isPreLock, setIsPreLock] = useState(true);
@@ -40,42 +38,11 @@ const WindowsXP = ({ onClose }) => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isPreLock]);
 
-  useEffect(() => {
-    // Initialize main OS window ONLY when unlocked
-    if (!isLocked && typeof window !== 'undefined' && !winboxRef.current && containerRef.current) {
-      const node = document.createElement('div');
-      node.style.height = '100%';
-      node.style.width = '100%';
-      
-      winboxRef.current = new WinBox({
-        title: "Vishal's Portfolio Windows XP",
-        width: '100%',
-        height: '100%',
-        x: 'center',
-        y: 'center',
-        class: ['modern', 'xp-theme'],
-        root: containerRef.current,
-        mount: node,
-        onclose: () => {
-          if (onClose) onClose();
-          winboxRef.current = null;
-        }
-      });
-      setMountNode(node);
-    }
-
-    return () => {
-      // Cleanup when unmounting
-      if (winboxRef.current && typeof winboxRef.current.close === 'function') {
-        winboxRef.current.close();
-        winboxRef.current = null;
-      }
-    };
-  }, [isLocked, onClose]);
+  // Removed outer WinBox initialization for true native fullscreen
 
   // Utility to open sub-windows 
   const openApp = (title, contentHTML) => {
-    if (!mountNode) return;
+    if (!containerRef.current) return;
     
     // Slight randomization of window position
     const offsetX = Math.floor(Math.random() * 50);
@@ -87,7 +54,7 @@ const WindowsXP = ({ onClose }) => {
        height: Math.min(400, window.innerHeight * 0.5),
        x: 50 + offsetX,
        y: 50 + offsetY,
-       root: mountNode,
+       root: containerRef.current,
        class: ['modern', 'xp-theme', 'xp-app-window'],
        html: `<div class="xp-app-content">${contentHTML}</div>`
     });
@@ -136,7 +103,7 @@ const WindowsXP = ({ onClose }) => {
   );
 
   const desktopContent = (
-    <div className="xp-desktop" onClick={() => setStartOpen(false)} style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1545431780-8b1e4a5db3ad?q=80&w=2000&auto=format&fit=crop")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div className="xp-desktop" onClick={() => setStartOpen(false)} style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1545431780-8b1e4a5db3ad?q=80&w=2000&auto=format&fit=crop")', backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', height: '100%' }}>
       
       {/* Desktop Icons */}
       <div className="xp-icon-grid" style={{ display: 'flex', flexDirection: 'column', gap: '20px', padding: '20px', alignItems: 'flex-start' }}>
@@ -232,7 +199,7 @@ const WindowsXP = ({ onClose }) => {
           
           <div className="xp-start-footer">
             <div className="xp-start-action" onClick={() => {
-              if (winboxRef.current) winboxRef.current.close();
+              if (onClose) onClose();
             }}>
               <img src="https://win98icons.alexmeub.com/icons/png/shut_down_normal-2.png" alt="Log Off" />
               <span>Turn Off Computer</span>
@@ -267,10 +234,9 @@ const WindowsXP = ({ onClose }) => {
             {lockScreenContent}
           </div>
         ) : (
-          <>
-            <div ref={containerRef} className="relative w-full h-full bg-black/90"></div>
-            {mountNode && createPortal(desktopContent, mountNode)}
-          </>
+          <div ref={containerRef} className="relative w-full h-full bg-black/90 animate-in zoom-in-95 duration-300">
+            {desktopContent}
+          </div>
         )}
     </div>
   );
