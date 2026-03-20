@@ -103,26 +103,26 @@ const WindowsXP = ({ onClose }) => {
   );
 
   const desktopContent = (
-    <div className="xp-desktop" onClick={() => setStartOpen(false)} style={{ backgroundImage: 'url("https://upload.wikimedia.org/wikipedia/en/1/17/Bliss_%28Windows_XP%29.png")', backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', height: '100%', fontFamily: 'Tahoma, sans-serif' }}>
+    <div className="xp-desktop" onClick={() => setStartOpen(false)} style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1545431780-8b1e4a5db3ad?q=80&w=2000&auto=format&fit=crop")', backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', height: '100%', fontFamily: 'Tahoma, sans-serif' }}>
       
       {/* Desktop Icons */}
       <div className="xp-icon-grid" style={{ display: 'flex', flexDirection: 'column', gap: '20px', padding: '20px', alignItems: 'flex-start' }}>
-        <div className="xp-icon" onDoubleClick={() => openApp("My Computer", `<div style="padding:20px"><h3>My Computer</h3><p>Local Disk (C:)</p></div>`)}>
+        <div className="xp-icon" onClick={() => openApp("My Computer", `<div style="padding:20px"><h3>My Computer</h3><p>Local Disk (C:)</p></div>`)} onDoubleClick={() => openApp("My Computer", `<div style="padding:20px"><h3>My Computer</h3><p>Local Disk (C:)</p></div>`)}>
           <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png" alt="Computer" style={{ imageRendering: 'pixelated', width: 32, height: 32 }} />
           <span style={{color: 'white', textShadow: '1px 1px 2px black, 0 0 1em black, 0 0 0.2em black'}}>My Computer</span>
         </div>
         
-        <div className="xp-icon" onDoubleClick={() => openApp("Recycle Bin", `<div style="padding:20px"><h3>Recycle Bin</h3><p>Folder empty.</p></div>`)}>
+        <div className="xp-icon" onClick={() => openApp("Recycle Bin", `<div style="padding:20px"><h3>Recycle Bin</h3><p>Folder empty.</p></div>`)} onDoubleClick={() => openApp("Recycle Bin", `<div style="padding:20px"><h3>Recycle Bin</h3><p>Folder empty.</p></div>`)}>
           <img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_empty-4.png" alt="Recycle Bin" style={{ imageRendering: 'pixelated', width: 32, height: 32 }} />
           <span style={{color: 'white', textShadow: '1px 1px 2px black, 0 0 1em black, 0 0 0.2em black'}}>Recycle Bin</span>
         </div>
 
-        <div className="xp-icon" onDoubleClick={() => openApp("My Portfolio", `<div style="padding:20px"><h3>My Portfolio</h3><p>Welcome to my professional site.</p></div>`)}>
+        <div className="xp-icon" onClick={() => openApp("My Portfolio", `<div style="padding:20px"><h3>My Portfolio</h3><p>Welcome to my professional site.</p></div>`)} onDoubleClick={() => openApp("My Portfolio", `<div style="padding:20px"><h3>My Portfolio</h3><p>Welcome to my professional site.</p></div>`)}>
           <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" alt="My Portfolio" style={{ imageRendering: 'pixelated', width: 32, height: 32 }} />
           <span style={{color: 'white', textShadow: '1px 1px 2px black, 0 0 1em black, 0 0 0.2em black'}}>My Portfolio</span>
         </div>
         
-        <div className="xp-icon" onDoubleClick={() => openApp("Internet", `<div style="padding:20px"><h3>Internet Explorer</h3><p>Welcome to the World Wide Web.</p></div>`)}>
+        <div className="xp-icon" onClick={() => openApp("Internet", `<div style="padding:20px"><h3>Internet Explorer</h3><p>Welcome to the World Wide Web.</p></div>`)} onDoubleClick={() => openApp("Internet", `<div style="padding:20px"><h3>Internet Explorer</h3><p>Welcome to the World Wide Web.</p></div>`)}>
           <img src="https://win98icons.alexmeub.com/icons/png/msie1-2.png" alt="Internet" style={{ imageRendering: 'pixelated', width: 32, height: 32 }} />
           <span style={{color: 'white', textShadow: '1px 1px 2px black, 0 0 1em black, 0 0 0.2em black'}}>Internet Explorer</span>
         </div>
@@ -188,11 +188,19 @@ const WindowsXP = ({ onClose }) => {
           </div>
           
           <div className="xp-start-footer">
-            <div className="xp-start-action" onClick={() => {
-              if (onClose) onClose();
-            }}>
-              <img src="https://win98icons.alexmeub.com/icons/png/shut_down_normal-2.png" alt="Log Off" />
-              <span>Turn Off Computer</span>
+            <div className="flex gap-4">
+              <div className="xp-start-action" onClick={() => { if (onClose) onClose(); }}>
+                <img src="https://win98icons.alexmeub.com/icons/png/key_mouse-2.png" alt="Log Off" />
+                <span>Log Off</span>
+              </div>
+              <div className="xp-start-action" onClick={() => { window.location.reload(); }}>
+                <img src="https://win98icons.alexmeub.com/icons/png/restart_computer-0.png" alt="Restart" />
+                <span>Restart</span>
+              </div>
+              <div className="xp-start-action" onClick={() => { if (onClose) onClose(); }}>
+                <img src="https://win98icons.alexmeub.com/icons/png/shut_down_normal-2.png" alt="Turn Off" />
+                <span>Turn Off Computer</span>
+              </div>
             </div>
           </div>
         </div>
