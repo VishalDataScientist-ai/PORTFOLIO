@@ -33,8 +33,8 @@ const AnimatedLogo = () => {
     <div id="main-animated-logo" className="fixed top-0 left-0 z-[90] pointer-events-none origin-top-left">
        <a 
          href="#" 
-         className="flex items-center text-2xl font-black pointer-events-auto whitespace-nowrap origin-top-left transition-all duration-300 text-cyan-400" 
-         style={{ filter: isScrolled ? 'drop-shadow(0 0 8px rgba(34,211,238,0.8))' : 'drop-shadow(0 0 15px rgba(34,211,238,1))' }}
+         className="flex items-center text-2xl font-black pointer-events-auto whitespace-nowrap origin-top-left transition-all duration-300 bg-clip-text text-transparent bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-600" 
+         style={{ filter: isScrolled ? 'drop-shadow(0 0 8px rgba(250,204,21,0.4))' : 'drop-shadow(0 0 20px rgba(250,204,21,0.9))' }}
        >
          VISHAL.
        </a>
@@ -65,7 +65,7 @@ function App() {
     // We animate from huge left-aligned text down to the navbar slot
     gsap.fromTo(logo, 
     {
-      x: "8vw",
+      x: "2vw",
       y: "80vh",
       xPercent: 0,
       yPercent: -100,
