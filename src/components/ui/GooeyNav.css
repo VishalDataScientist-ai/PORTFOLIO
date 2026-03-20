@@ -1,0 +1,49 @@
+.gooey-nav-container {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.gooey-nav-container ul {
+  list-style: none;
+}
+
+.gooey-nav-container li {
+  position: relative;
+  z-index: 10;
+  width: max-content;
+}
+
+/* Hide absolute effect elements initially until calculated */
+.gooey-nav-container .effect {
+  position: absolute;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.gooey-nav-container .effect.filter {
+  filter: url('#gooey-filter');
+}
+
+.gooey-nav-container .particle {
+  position: absolute;
+  background: var(--color, #22d3ee);
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  width: calc(var(--scale) * 12px);
+  height: calc(var(--scale) * 12px);
+  transform: translate(calc(-50% + var(--start-x)), calc(-50% + var(--start-y))) scale(1) rotate(0deg);
+  animation: particleAnim var(--time) ease-out forwards;
+}
+
+@keyframes particleAnim {
+  0% {
+    transform: translate(calc(-50% + var(--start-x)), calc(-50% + var(--start-y))) scale(1.5) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(-50% + var(--end-x)), calc(-50% + var(--end-y))) scale(0) rotate(var(--rotate));
+    opacity: 0;
+  }
+}

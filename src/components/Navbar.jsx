@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Download, Plus } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import GooeyNav from './ui/GooeyNav';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -99,26 +100,21 @@ const Navbar = () => {
                 <X size={24} strokeWidth={3} />
               </button>
 
-              {/* Links List */}
-              <div className="flex flex-col space-y-4 md:space-y-6">
-                {navLinks.map((link, i) => (
-                  <motion.a
-                    key={link.name}
-                    href={link.href}
-                    custom={i}
-                    variants={linkVariants}
-                    initial="initial"
-                    animate="animate"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="group flex flex-row items-start text-5xl md:text-6xl lg:text-7xl font-black text-white hover:text-cyan-400 transition-colors w-max tracking-tighter"
-                  >
-                    {link.name}
-                    <span className="text-sm md:text-lg font-normal ml-4 mt-2 md:mt-3 text-slate-500 group-hover:text-cyan-400 transition-colors">
-                      {link.num}
-                    </span>
-                  </motion.a>
-                ))}
-              </div>
+              {/* Links List with Gooey effect */}
+              <motion.div
+                variants={{
+                  initial: { opacity: 0 },
+                  animate: { opacity: 1, transition: { delay: 0.3, duration: 0.8 } }
+                }}
+                initial="initial"
+                animate="animate"
+                className="w-full"
+              >
+                <GooeyNav 
+                  items={navLinks.map(link => ({ label: link.name, href: link.href, num: link.num }))} 
+                  onMenuClick={() => setIsMenuOpen(false)}
+                />
+              </motion.div>
 
               {/* Socials & Resume */}
               <motion.div 
