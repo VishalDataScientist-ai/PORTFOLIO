@@ -46,7 +46,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
   const vec = new THREE.Vector3(), ang = new THREE.Vector3(), rot = new THREE.Vector3(), dir = new THREE.Vector3();
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
   
-  const [texture, bandTexture] = useTexture(['/profile.jpg', '/lanyard_texture.png']);
+  const [texture, bandTexture] = useTexture(['/profile.jpg', '/marvel_lanyard.png']);
   const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]));
   const [dragged, drag] = useState(false);
   const [hovered, hover] = useState(false);
@@ -130,12 +130,17 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
               <boxGeometry args={[0.2, 0.05, 0.05]} />
               <meshStandardMaterial color="#555" roughness={0.3} metalness={0.8} />
             </mesh>
+            {/* Marvel Red Tag */}
+            <mesh position={[0.25, 1.1, 0.05]} rotation={[0, 0, -0.2]}>
+              <boxGeometry args={[0.25, 0.7, 0.02]} />
+              <meshStandardMaterial color="#E23636" roughness={0.5} />
+            </mesh>
           </group>
         </RigidBody>
       </group>
       <mesh ref={band}>
         <meshLineGeometry />
-        <meshLineMaterial color="white" depthTest={false} resolution={isMobile ? [1000, 2000] : [1000, 1000]} useMap={true} map={bandTexture} repeat={[-4, 1]} lineWidth={1} />
+        <meshLineMaterial color="white" depthTest={false} resolution={isMobile ? [1000, 2000] : [1000, 1000]} useMap={true} map={bandTexture} repeat={[-4, 1]} lineWidth={3} />
       </mesh>
     </>
   );
