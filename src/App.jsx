@@ -65,7 +65,7 @@ function App() {
     gsap.fromTo(logo, 
     {
       x: "4vw",
-      y: "85vh",
+      y: "75vh",
       xPercent: 0,
       yPercent: -100,
       scale: window.innerWidth < 768 ? 3 : 6,
