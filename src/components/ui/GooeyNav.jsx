@@ -158,17 +158,23 @@ const GooeyNav = ({
       <nav>
         <ul ref={navRef} className="flex flex-col space-y-4 md:space-y-6">
           {items.map((item, index) => (
-            <li key={item.label} className={activeIndex === index ? 'active' : ''}>
+            <li key={index} className={activeIndex === index ? 'active' : ''}>
               <a 
                 href={item.href} 
-                className="group flex flex-row items-start text-5xl md:text-6xl lg:text-7xl font-black text-white hover:text-cyan-400 transition-colors w-max tracking-tighter"
+                className={item.className || "group flex flex-row items-start text-5xl md:text-6xl lg:text-7xl font-black text-white hover:text-cyan-400 transition-colors w-max tracking-tighter"}
                 onClick={e => handleClick(e, index)} 
                 onKeyDown={e => handleKeyDown(e, index)}
               >
-                {item.label}
-                <span className="text-sm md:text-lg font-normal ml-4 mt-2 md:mt-3 text-slate-500 group-hover:text-cyan-400 transition-colors">
-                  {item.num}
-                </span>
+                {item.content ? item.content : (
+                  <>
+                    {item.label}
+                    {item.num && (
+                      <span className="text-sm md:text-lg font-normal ml-4 mt-2 md:mt-3 text-slate-500 group-hover:text-cyan-400 transition-colors">
+                        {item.num}
+                      </span>
+                    )}
+                  </>
+                )}
               </a>
             </li>
           ))}

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Linkedin, Send } from 'lucide-react';
 import Lightning from './ui/Lightning';
+import GooeyNav from './ui/GooeyNav';
 
 const Contact = () => {
   return (
@@ -25,51 +26,64 @@ const Contact = () => {
               Whether you have an interesting project, a potential career opportunity, or just want to connect over business analytics and strategy, my inbox is always open.
             </p>
 
-            <div className="space-y-6 mb-12">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600">
-                  <Mail size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-white">Email Me</h4>
-                  <a href="mailto:contact@vishalsingh.com" className="text-slate-300 hover:text-blue-600 transition-colors">
-                    contact@vishalsingh.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600">
-                  <Linkedin size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-white">Connect</h4>
-                  <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-slate-300 hover:text-blue-600 transition-colors">
-                    LinkedIn Profile
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600">
-                  <MapPin size={24} />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-white">Location</h4>
-                  <span className="text-slate-300">
-                    India
-                  </span>
-                </div>
-              </div>
+            <div className="mb-12">
+              <GooeyNav 
+                colors={['#3b82f6', '#1d4ed8', '#60a5fa', '#93c5fd']}
+                particleDistances={[60, 20]}
+                items={[
+                  {
+                    href: 'mailto:contact@vishalsingh.com',
+                    className: 'flex items-center space-x-4 group w-full text-left',
+                    content: (
+                      <>
+                        <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shadow-sm relative z-10">
+                          <Mail size={24} />
+                        </div>
+                        <div className="relative z-10 transition-transform group-hover:translate-x-1">
+                          <h4 className="font-semibold text-white">Email Me</h4>
+                          <span className="text-slate-300">contact@vishalsingh.com</span>
+                        </div>
+                      </>
+                    )
+                  },
+                  {
+                    href: 'https://linkedin.com',
+                    className: 'flex items-center space-x-4 group w-full text-left',
+                    content: (
+                      <>
+                        <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shadow-sm relative z-10">
+                          <Linkedin size={24} />
+                        </div>
+                        <div className="relative z-10 transition-transform group-hover:translate-x-1">
+                          <h4 className="font-semibold text-white">Connect</h4>
+                          <span className="text-slate-300">LinkedIn Profile</span>
+                        </div>
+                      </>
+                    )
+                  },
+                  {
+                    href: '#',
+                    className: 'flex items-center space-x-4 group w-full text-left',
+                    content: (
+                      <>
+                        <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shadow-sm relative z-10">
+                          <MapPin size={24} />
+                        </div>
+                        <div className="relative z-10 transition-transform group-hover:translate-x-1">
+                          <h4 className="font-semibold text-white">Location</h4>
+                          <span className="text-slate-300">India</span>
+                        </div>
+                      </>
+                    )
+                  },
+                  {
+                    href: '/resume.pdf',
+                    className: 'inline-flex items-center justify-center space-x-2 bg-slate-900 hover:bg-slate-800 text-white px-8 py-3.5 rounded-lg transition-colors shadow-md font-medium mt-6 relative z-10 w-max',
+                    content: <span>Download My Resume</span>
+                  }
+                ]}
+              />
             </div>
-            
-            <a 
-              href="/resume.pdf" 
-              className="inline-flex items-center justify-center space-x-2 bg-slate-900 hover:bg-slate-800 text-white px-8 py-3.5 rounded-lg transition-colors shadow-md font-medium"
-              target="_blank" rel="noreferrer"
-            >
-              <span>Download My Resume</span>
-            </a>
           </motion.div>
 
           <motion.div
