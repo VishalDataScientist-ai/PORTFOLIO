@@ -143,7 +143,7 @@ const WindowsXP = ({ onClose }) => {
         <div className="xp-start-menu" onClick={e => e.stopPropagation()}>
           <div className="xp-start-header">
             <img src="https://win98icons.alexmeub.com/icons/png/user_computer-0.png" alt="User" className="xp-user-icon"/>
-            <span>Vishal Singh</span>
+            <span>vishal'sWorkplace</span>
           </div>
           <div className="xp-start-body">
             <div className="xp-start-left">
@@ -211,7 +211,7 @@ const WindowsXP = ({ onClose }) => {
       {/* Taskbar */}
       <div className="xp-taskbar" onClick={e => e.stopPropagation()}>
         <button className={`xp-start-button ${startOpen ? 'active' : ''}`} onClick={() => setStartOpen(!startOpen)}>
-          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Windows_logo_-_2001.svg/100px-Windows_logo_-_2001.svg.png" width="16" alt="Start" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Windows_logo_-_2001.svg" width="16" alt="Start" />
           start
         </button>
         <div className="xp-task-divider"></div>
