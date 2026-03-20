@@ -25,8 +25,10 @@ const About = () => {
                 showUserInfo={false}
                 enableTilt={true}
                 enableMobileTilt={false}
-                behindGlowColor="rgba(34, 211, 238, 0.5)"
+                behindGlowColor="rgba(125, 190, 255, 0.67)"
                 behindGlowEnabled={true}
+                innerGradient="linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)"
+                iconUrl="https://reactbits.dev/assets/demo/iconpattern.png"
               />
             </div>
             {/* Decorative element */}
