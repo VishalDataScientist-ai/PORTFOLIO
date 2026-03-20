@@ -64,8 +64,8 @@ function App() {
     // We animate from huge left-aligned text down to the navbar slot
     gsap.fromTo(logo, 
     {
-      x: "4vw",
-      y: "75vh",
+      x: "8vw",
+      y: "80vh",
       xPercent: 0,
       yPercent: -100,
       scale: window.innerWidth < 768 ? 3 : 6,
