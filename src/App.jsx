@@ -33,8 +33,8 @@ const AnimatedLogo = () => {
     <div id="main-animated-logo" className="fixed top-0 left-0 z-[90] pointer-events-none origin-top-left">
        <a 
          href="#" 
-         className={`flex items-center text-2xl font-black pointer-events-auto whitespace-nowrap origin-top-left transition-all duration-300 ${isScrolled ? 'text-slate-900' : 'bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-purple-600'}`} 
-         style={{ filter: isScrolled ? 'none' : 'drop-shadow(0 0 10px rgba(217,70,239,0.5))' }}
+         className="flex items-center text-2xl font-black pointer-events-auto whitespace-nowrap origin-top-left transition-all duration-300 text-cyan-400" 
+         style={{ filter: isScrolled ? 'drop-shadow(0 0 8px rgba(34,211,238,0.8))' : 'drop-shadow(0 0 15px rgba(34,211,238,1))' }}
        >
          VISHAL.
        </a>

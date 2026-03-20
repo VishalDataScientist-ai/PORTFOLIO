@@ -50,7 +50,7 @@ const Navbar = () => {
   return (
     <>
       {/* Standard Navbar */}
-      <nav className={`fixed w-full z-[80] transition-colors duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
+      <nav className={`fixed w-full z-[80] transition-colors duration-300 ${isScrolled ? 'bg-black/40 backdrop-blur-md border-b border-white/10 shadow-lg shadow-cyan-900/20' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex justify-between items-center w-full">
             <div className="flex-shrink-0 relative">
@@ -62,7 +62,7 @@ const Navbar = () => {
             
             <button 
               onClick={() => setIsMenuOpen(true)} 
-              className={`flex items-center space-x-2 font-black uppercase tracking-widest text-sm hover:opacity-70 transition-opacity ${isScrolled ? 'text-slate-900' : 'text-white'}`}
+              className="flex items-center space-x-2 font-black uppercase tracking-widest text-sm hover:text-cyan-400 text-white transition-colors drop-shadow-md"
             >
               <span>Menu</span>
               <Plus size={20} strokeWidth={3} />
