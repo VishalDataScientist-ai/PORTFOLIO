@@ -18,7 +18,7 @@ const About = () => {
           >
             <div className="aspect-[4/5] max-w-sm mx-auto relative rounded-3xl overflow-hidden shadow-2xl bg-white/10 border border-white/10 group">
               <img 
-                src="/profile.jpg" 
+                src="/profile-full.jpg" 
                 alt="Vishal Singh Profile" 
                 className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
