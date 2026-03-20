@@ -1,11 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Linkedin, Send } from 'lucide-react';
+import Lightning from './ui/Lightning';
 
 const Contact = () => {
   return (
-    <section id="contact" className="bg-white/5 backdrop-blur-md">
-      <div className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="relative bg-[#050510] overflow-hidden border-t border-white/10">
+      <div className="absolute inset-0 pointer-events-none z-0 opacity-70">
+        <Lightning hue={260} xOffset={0} speed={1} intensity={1} size={1} />
+      </div>
+      <div className="relative z-10 py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           
