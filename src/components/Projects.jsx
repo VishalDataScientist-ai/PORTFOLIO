@@ -77,7 +77,7 @@ const Projects = () => {
               </p>
               
               <div className="mb-6">
-                <h5 className="text-xs font-bold text-slate-500 tracking-wider uppercase mb-3">Tools Used</h5>
+                <h5 className="text-xs font-bold text-slate-400 tracking-wider uppercase mb-3">Tools Used</h5>
                 <div className="flex flex-wrap gap-2">
                   {project.tools.map((tool, tIdx) => (
                     <span key={tIdx} className="px-3 py-1 bg-slate-900 text-slate-300 text-sm rounded-full border border-slate-700">
@@ -88,7 +88,7 @@ const Projects = () => {
               </div>
 
               <div className="pt-6 border-t border-slate-700">
-                <h5 className="text-xs font-bold text-slate-500 tracking-wider uppercase mb-2">Outcome</h5>
+                <h5 className="text-xs font-bold text-slate-400 tracking-wider uppercase mb-2">Outcome</h5>
                 <p className="text-slate-300 text-sm italic">
                   "{project.outcome}"
                 </p>

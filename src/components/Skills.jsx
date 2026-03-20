@@ -43,7 +43,7 @@ const skillCategories = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-24 bg-white">
+    <section id="skills" className="py-24 bg-white/5 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-16">
@@ -53,9 +53,9 @@ const Skills = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-sm font-bold tracking-widest text-blue-700 uppercase mb-3">Expertise</h2>
-            <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6">Core Competencies</h3>
-            <p className="max-w-2xl mx-auto text-lg text-slate-600">
+            <h2 className="text-sm font-bold tracking-widest text-blue-400 uppercase mb-3">Expertise</h2>
+            <h3 className="text-3xl md:text-5xl font-extrabold text-white mb-6">Core Competencies</h3>
+            <p className="max-w-2xl mx-auto text-lg text-slate-300">
               A balanced technical and strategic skill set designed to interpret data and influence business outcomes.
             </p>
           </motion.div>
@@ -69,15 +69,15 @@ const Skills = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-slate-50 rounded-2xl p-8 border border-slate-100"
+              className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10"
             >
-              <h4 className="text-2xl font-bold text-slate-800 mb-8 border-b border-slate-200 pb-4">{category.title}</h4>
+              <h4 className="text-2xl font-bold text-slate-100 mb-8 border-b border-white/10 pb-4">{category.title}</h4>
               <div className="space-y-6">
                 {category.skills.map((skill, sIdx) => (
                   <div key={sIdx}>
                     <div className="flex justify-between mb-2">
                       <span className="font-medium text-slate-700">{skill.name}</span>
-                      <span className="text-slate-500 text-sm">{skill.level}%</span>
+                      <span className="text-slate-400 text-sm">{skill.level}%</span>
                     </div>
                     <div className="w-full bg-slate-200 rounded-full h-2.5 overflow-hidden">
                       <motion.div 

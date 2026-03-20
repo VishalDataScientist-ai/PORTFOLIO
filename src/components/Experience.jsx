@@ -31,7 +31,7 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-24 bg-slate-50">
+    <section id="experience" className="py-24 bg-white/5 backdrop-blur-md">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-16">
@@ -41,15 +41,15 @@ const Experience = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-sm font-bold tracking-widest text-blue-700 uppercase mb-3">Journey</h2>
-            <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6">Experience & Leadership</h3>
-            <p className="text-lg text-slate-600">
+            <h2 className="text-sm font-bold tracking-widest text-blue-400 uppercase mb-3">Journey</h2>
+            <h3 className="text-3xl md:text-5xl font-extrabold text-white mb-6">Experience & Leadership</h3>
+            <p className="text-lg text-slate-300">
               A timeline of my professional growth, technical exploration, and leadership experiences.
             </p>
           </motion.div>
         </div>
 
-        <div className="relative border-l-2 border-slate-200 ml-3 md:ml-6 mt-12 space-y-12 pb-8">
+        <div className="relative border-l-2 border-white/10 ml-3 md:ml-6 mt-12 space-y-12 pb-8">
           {experiences.map((exp, idx) => (
             <motion.div 
               key={idx}
@@ -63,19 +63,19 @@ const Experience = () => {
                 {exp.icon}
               </div>
               
-              <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition-shadow">
+              <div className="bg-white/5 backdrop-blur-md p-6 md:p-8 rounded-2xl shadow-sm border border-white/10 hover:shadow-lg transition-shadow">
                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
                   <div>
-                    <h4 className="text-xl font-bold text-slate-900">{exp.role}</h4>
-                    <span className="text-blue-700 font-medium">{exp.organization}</span>
+                    <h4 className="text-xl font-bold text-white">{exp.role}</h4>
+                    <span className="text-blue-400 font-medium">{exp.organization}</span>
                   </div>
                   <div className="mt-2 md:mt-0">
-                    <span className="inline-block px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-sm font-semibold">
+                    <span className="inline-block px-3 py-1 bg-white/10 text-slate-300 rounded-full text-sm font-semibold">
                       {exp.period}
                     </span>
                   </div>
                 </div>
-                <p className="text-slate-600 leading-relaxed text-base">
+                <p className="text-slate-300 leading-relaxed text-base">
                   {exp.description}
                 </p>
               </div>

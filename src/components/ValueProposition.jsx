@@ -22,7 +22,7 @@ const values = [
 
 const ValueProposition = () => {
   return (
-    <section id="values" className="py-24 bg-slate-50 border-t border-slate-200">
+    <section id="values" className="py-24 bg-white/5 backdrop-blur-md border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.div
@@ -31,9 +31,9 @@ const ValueProposition = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-sm font-bold tracking-widest text-blue-700 uppercase mb-3">Value Proposition</h2>
-            <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6">What I Bring to the Table</h3>
-            <p className="max-w-2xl mx-auto text-lg text-slate-600">
+            <h2 className="text-sm font-bold tracking-widest text-blue-400 uppercase mb-3">Value Proposition</h2>
+            <h3 className="text-3xl md:text-5xl font-extrabold text-white mb-6">What I Bring to the Table</h3>
+            <p className="max-w-2xl mx-auto text-lg text-slate-300">
               A unique blend of analytical rigor and business acumen, designed to help organizations optimize their strategy and growth.
             </p>
           </motion.div>
@@ -47,13 +47,13 @@ const ValueProposition = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all border border-slate-100 group"
+              className="bg-white/5 backdrop-blur-md rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all border border-white/10 group"
             >
-              <div className="w-16 h-16 rounded-xl bg-slate-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <div className="w-16 h-16 rounded-xl bg-white/5 backdrop-blur-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 {val.icon}
               </div>
-              <h4 className="text-xl font-bold text-slate-900 mb-4">{val.title}</h4>
-              <p className="text-slate-600 leading-relaxed">
+              <h4 className="text-xl font-bold text-white mb-4">{val.title}</h4>
+              <p className="text-slate-300 leading-relaxed">
                 {val.description}
               </p>
             </motion.div>

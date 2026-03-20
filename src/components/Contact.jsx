@@ -4,7 +4,7 @@ import { Mail, MapPin, Linkedin, Send } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section id="contact" className="bg-white">
+    <section id="contact" className="bg-white/5 backdrop-blur-md">
       <div className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -15,9 +15,9 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-sm font-bold tracking-widest text-blue-700 uppercase mb-3">Get in Touch</h2>
-            <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6">Let's build something together.</h3>
-            <p className="text-lg text-slate-600 mb-10 leading-relaxed">
+            <h2 className="text-sm font-bold tracking-widest text-blue-400 uppercase mb-3">Get in Touch</h2>
+            <h3 className="text-3xl md:text-5xl font-extrabold text-white mb-6">Let's build something together.</h3>
+            <p className="text-lg text-slate-300 mb-10 leading-relaxed">
               Whether you have an interesting project, a potential career opportunity, or just want to connect over business analytics and strategy, my inbox is always open.
             </p>
 
@@ -27,8 +27,8 @@ const Contact = () => {
                   <Mail size={24} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900">Email Me</h4>
-                  <a href="mailto:contact@vishalsingh.com" className="text-slate-600 hover:text-blue-600 transition-colors">
+                  <h4 className="font-semibold text-white">Email Me</h4>
+                  <a href="mailto:contact@vishalsingh.com" className="text-slate-300 hover:text-blue-600 transition-colors">
                     contact@vishalsingh.com
                   </a>
                 </div>
@@ -39,8 +39,8 @@ const Contact = () => {
                   <Linkedin size={24} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900">Connect</h4>
-                  <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-slate-600 hover:text-blue-600 transition-colors">
+                  <h4 className="font-semibold text-white">Connect</h4>
+                  <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-slate-300 hover:text-blue-600 transition-colors">
                     LinkedIn Profile
                   </a>
                 </div>
@@ -51,8 +51,8 @@ const Contact = () => {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900">Location</h4>
-                  <span className="text-slate-600">
+                  <h4 className="font-semibold text-white">Location</h4>
+                  <span className="text-slate-300">
                     India
                   </span>
                 </div>
@@ -73,35 +73,35 @@ const Contact = () => {
              whileInView={{ opacity: 1, x: 0 }}
              viewport={{ once: true }}
              transition={{ duration: 0.5, delay: 0.2 }}
-             className="bg-slate-50 p-8 md:p-10 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50"
+             className="bg-white/5 backdrop-blur-md p-8 md:p-10 rounded-3xl border border-white/10 shadow-xl shadow-slate-200/50"
           >
             <form className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-slate-900 mb-2">Full Name</label>
+                <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">Full Name</label>
                 <input 
                   type="text" 
                   id="name" 
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all bg-white"
+                  className="w-full px-4 py-3 rounded-lg border border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all bg-white/5 backdrop-blur-md"
                   placeholder="John Doe"
                 />
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-slate-900 mb-2">Email Address</label>
+                <label htmlFor="email" className="block text-sm font-semibold text-white mb-2">Email Address</label>
                 <input 
                   type="email" 
                   id="email" 
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all bg-white"
+                  className="w-full px-4 py-3 rounded-lg border border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all bg-white/5 backdrop-blur-md"
                   placeholder="john@example.com"
                 />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-slate-900 mb-2">Message</label>
+                <label htmlFor="message" className="block text-sm font-semibold text-white mb-2">Message</label>
                 <textarea 
                   id="message" 
                   rows="4" 
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all bg-white resize-none"
+                  className="w-full px-4 py-3 rounded-lg border border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all bg-white/5 backdrop-blur-md resize-none"
                   placeholder="How can we collaborate?"
                 ></textarea>
               </div>
@@ -120,9 +120,9 @@ const Contact = () => {
       </div>
       
       {/* Footer */}
-      <div className="border-t border-slate-200 py-8 bg-slate-50">
+      <div className="border-t border-white/10 py-8 bg-white/5 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-slate-500 font-medium text-sm">
+          <p className="text-slate-400 font-medium text-sm">
             © {new Date().getFullYear()} Vishal Singh. All rights reserved.
           </p>
           <div className="flex space-x-6">
