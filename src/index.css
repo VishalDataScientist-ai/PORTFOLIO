@@ -9,7 +9,7 @@
   }
   
   body {
-    @apply bg-slate-50 text-slate-900 selection:bg-blue-200 selection:text-blue-900;
+    @apply bg-transparent text-slate-900 selection:bg-blue-200 selection:text-blue-900;
   }
 
   /* Override default cursors for the custom cursor effect */
