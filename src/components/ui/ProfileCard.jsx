@@ -474,7 +474,6 @@ const ProfileCardComponent = ({
             <div
               className="overflow-visible backface-hidden"
               style={{
-                mixBlendMode: 'luminosity',
                 transform: 'translateZ(2px)',
                 gridArea: '1 / -1',
                 borderRadius: cardRadius,
@@ -482,7 +481,7 @@ const ProfileCardComponent = ({
               }}
             >
               <img
-                className="w-full absolute left-1/2 bottom-[-1px] backface-hidden will-change-transform transition-transform duration-[120ms] ease-out"
+                className="w-full h-full object-cover absolute left-1/2 bottom-[-1px] backface-hidden will-change-transform transition-transform duration-[120ms] ease-out"
                 src={avatarUrl}
                 alt={`${name || 'User'} avatar`}
                 loading="lazy"
