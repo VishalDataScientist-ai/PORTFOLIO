@@ -11,20 +11,34 @@ const WindowsXP = ({ onClose }) => {
   const [mountNode, setMountNode] = useState(null);
   
   // Interactive OS State
+  const [isPreLock, setIsPreLock] = useState(true);
   const [isLocked, setIsLocked] = useState(true);
   const [startOpen, setStartOpen] = useState(false);
   const [time, setTime] = useState("");
+  const [preLockDate, setPreLockDate] = useState("");
 
   useEffect(() => {
     // Clock setup
     const updateTime = () => {
       const now = new Date();
-      setTime(now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+      setTime(now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }));
+      const options = { weekday: 'long', day: 'numeric', month: 'long' };
+      setPreLockDate(now.toLocaleDateString('en-US', options));
     };
     updateTime();
     const timer = setInterval(updateTime, 1000);
     return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.code === 'Space' && isPreLock) {
+        setIsPreLock(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isPreLock]);
 
   useEffect(() => {
     // Initialize main OS window ONLY when unlocked
@@ -35,8 +49,8 @@ const WindowsXP = ({ onClose }) => {
       
       winboxRef.current = new WinBox({
         title: "Vishal's Portfolio Windows XP",
-        width: '85%',
-        height: '85%',
+        width: '100%',
+        height: '100%',
         x: 'center',
         y: 'center',
         class: ['modern', 'xp-theme'],
@@ -79,16 +93,40 @@ const WindowsXP = ({ onClose }) => {
     });
   };
 
+  const preLockScreenContent = (
+    <div className="absolute inset-0 z-[110] flex flex-col items-center justify-between text-white overflow-hidden cursor-pointer select-none" style={{
+      backgroundImage: 'url("https://images.unsplash.com/photo-1509316785289-025f5b846b35?q=80&w=2000&auto=format&fit=crop")', // desert dune image
+      backgroundSize: 'cover', backgroundPosition: 'center',
+      fontFamily: '"Segoe UI", sans-serif',
+      boxShadow: 'inset 0 0 100px rgba(0,0,0,0.5)'
+    }} onClick={() => setIsPreLock(false)}>
+      <div className="pt-[15vh] flex flex-col items-center text-center transition-transform duration-500">
+        <h1 className="text-8xl md:text-9xl mb-2 font-light drop-shadow-lg tracking-wider">{time}</h1>
+        <p className="text-2xl md:text-3xl font-normal drop-shadow-md tracking-wide">{preLockDate}</p>
+      </div>
+      
+      <div className="pb-16 flex flex-col items-center text-center w-full bg-gradient-to-t from-black/50 to-transparent">
+        <p className="text-sm md:text-base font-medium opacity-90 mb-8 animate-pulse drop-shadow-md text-shadow-md">Press Space or Click to continue</p>
+        
+        {/* Bottom right icons placeholder */}
+        <div className="absolute bottom-6 right-8 flex space-x-6 opacity-90 items-center">
+          <span className="text-xs font-bold drop-shadow-md">ENG</span>
+          <svg className="drop-shadow-md" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12.55a11 11 0 0114.08 0 M1.42 9a16 16 0 0121.16 0 M8.53 16.11a6 6 0 016.95 0 M12 20h.01"></path></svg>
+          <svg className="drop-shadow-md" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path></svg>
+        </div>
+      </div>
+    </div>
+  );
+
   const lockScreenContent = (
-    <div className="absolute inset-0 z-50 flex items-center justify-center rounded-lg overflow-hidden" style={{
+    <div className="absolute inset-0 z-50 flex items-center justify-center overflow-hidden" style={{
       backgroundImage: 'url("https://images.unsplash.com/photo-1554629947-334ff61d85dc?q=80&w=2000&auto=format&fit=crop")',
       backgroundSize: 'cover', backgroundPosition: 'center',
       fontFamily: '"Segoe UI", sans-serif',
-      boxShadow: '0 0 100px rgba(0,100,255,0.2)'
     }}>
       <div className="absolute inset-0 bg-black/40 backdrop-blur-md"></div>
       <div className="relative z-10 flex flex-col items-center">
-        <img src="https://images.unsplash.com/photo-1497793138814-180a31623fcb?w=400&h=400&fit=crop" style={{ width: 180, height: 180, borderRadius: '50%', border: '4px solid rgba(255,255,255,0.2)', marginBottom: 20, boxShadow: '0 4px 20px rgba(0,0,0,0.5)', objectFit: 'cover' }} alt="Profile" />
+        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400&h=400&fit=crop" style={{ width: 180, height: 180, borderRadius: '50%', border: '4px solid rgba(255,255,255,0.2)', marginBottom: 20, boxShadow: '0 4px 20px rgba(0,0,0,0.5)', objectFit: 'cover' }} alt="Profile" />
         <h2 style={{ fontSize: 42, marginBottom: 30, textShadow: '0 2px 10px rgba(0,0,0,0.8)', fontWeight: 400, color: 'white' }}>Vishal Singh</h2>
         <button onClick={() => setIsLocked(false)} style={{ padding: '8px 40px', fontSize: 16, background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.4)', color: 'white', borderRadius: 4, cursor: 'pointer', transition: 'all 0.3s' }} onMouseOver={e=>e.target.style.background='rgba(255,255,255,0.2)'} onMouseOut={e=>e.target.style.background='rgba(255,255,255,0.1)'}>
           Sign in
@@ -219,14 +257,18 @@ const WindowsXP = ({ onClose }) => {
   );
 
   return (
-    <div className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md flex items-center justify-center p-4 md:p-8 pointer-events-auto transition-opacity duration-300">
-        {isLocked ? (
-          <div className="relative w-full h-full max-w-7xl max-h-[90vh]">
+    <div className="fixed inset-0 z-[100] bg-black flex items-center justify-center pointer-events-auto transition-opacity duration-300">
+        {isPreLock ? (
+          <div className="relative w-full h-full animate-in fade-in duration-500">
+            {preLockScreenContent}
+          </div>
+        ) : isLocked ? (
+          <div className="relative w-full h-full animate-in fade-in duration-500">
             {lockScreenContent}
           </div>
         ) : (
           <>
-            <div ref={containerRef} className="relative w-full h-full max-w-7xl max-h-[90vh] shadow-[0_0_100px_rgba(0,100,255,0.2)] rounded-lg"></div>
+            <div ref={containerRef} className="relative w-full h-full bg-black/90"></div>
             {mountNode && createPortal(desktopContent, mountNode)}
           </>
         )}
