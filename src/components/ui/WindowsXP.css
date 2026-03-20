@@ -11,20 +11,27 @@
 }
 
 /* Winbox theme customization for XP layout */
+/* Winbox theme customization for XP layout */
 .modern.xp-theme {
   background: linear-gradient(to bottom, #0058e6 0%, #3a93ff 8%, #288dfa 40%, #1276ea 88%, #035ce4 100%);
-  border: 1px solid #00138c;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), inset 1px 0 1px rgba(255, 255, 255, 0.4), 0 0 10px rgba(0,0,0,0.5);
-  border-radius: 8px 8px 0 0;
+  border: 3px solid #0053e5;
+  border-top: none;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.modern.xp-theme .wb-header {
+  height: 30px;
 }
 
 .modern.xp-theme .wb-title {
   color: white;
-  text-shadow: 1px 1px 2px black;
+  text-shadow: 1px 1px 1px black;
   font-weight: bold;
   font-size: 13px;
-  font-family: Trebuchet MS, Tahoma, sans-serif;
-  padding-left: 24px;
+  font-family: Tahoma, sans-serif;
+  padding-left: 8px;
+  line-height: 30px;
 }
 
 .modern.xp-theme .wb-icon {
@@ -32,13 +39,17 @@
 }
 
 .modern.xp-theme .wb-close {
-  background-color: #e04343;
+  background: linear-gradient(to bottom, #E87A6E 0%, #E65A4B 10%, #E03B26 50%, #CD220F 100%);
   border-radius: 3px;
-  margin-top: 2px;
+  margin-top: 4px;
   margin-right: 4px;
+  box-shadow: inset 1px 1px 1px rgba(255,255,255,0.7), 1px 1px 2px rgba(0,0,0,0.5);
+  width: 21px;
+  height: 21px;
+  border: 1px solid white;
 }
 .modern.xp-theme .wb-close:hover {
-  background-color: #ff6666;
+  background: linear-gradient(to bottom, #f09a91 0%, #ea796c 10%, #E55A48 50%, #d83c29 100%);
 }
 
 /* Sub-window overrides */
@@ -143,28 +154,29 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 36px;
+  height: 30px;
   background: linear-gradient(to bottom, #245edb 0%, #3f8cf3 9%, #245edb 18%, #245edb 92%, #333 100%);
   display: flex;
   align-items: center;
-  z-index: 1000;
+  z-index: 3000;
   border-top: 1px solid #1444b0;
+  font-family: Tahoma, sans-serif;
 }
 
 .xp-start-button {
   height: 100%;
   background: linear-gradient(to bottom, #3ca14a 0%, #4ebf5c 10%, #328b3d 100%);
   border: none;
-  border-radius: 0 12px 12px 0;
+  border-radius: 0 10px 10px 0;
   color: white;
   font-weight: 700;
   font-style: italic;
   font-family: 'Franklin Gothic Medium', 'Trebuchet MS', Tahoma, sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 0 20px 0 12px;
+  padding: 0 16px 0 10px;
   box-shadow: inset 1px 1px 2px rgba(255,255,255,0.7), inset -1px -1px 2px rgba(0,0,0,0.3), 2px 0 4px rgba(0,0,0,0.4);
   cursor: pointer;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
@@ -186,25 +198,26 @@
 
 .xp-system-tray {
   height: 100%;
-  background: linear-gradient(to bottom, #0c59b9 0%, #139ee9 10%, #18b5f2 40%, #0c59b9 100%);
+  background: linear-gradient(to bottom, #0f8de9 0%, #209ef4 10%, #0076cf 90%, #0060ad 100%);
   border-left: 1px solid #00138c;
-  padding: 0 16px;
+  padding: 0 12px;
   display: flex;
   align-items: center;
-  box-shadow: inset 1px 0 1px rgba(255,255,255,0.2);
+  box-shadow: inset 1px 0 1px rgba(255,255,255,0.3);
 }
 
 .xp-clock {
   font-size: 11px;
   color: white;
   font-weight: normal;
+  font-family: Tahoma, sans-serif;
 }
 
 
 /* Start Menu */
 .xp-start-menu {
   position: absolute;
-  bottom: 36px;
+  bottom: 30px;
   left: 0;
   width: 400px;
   background: #fff;

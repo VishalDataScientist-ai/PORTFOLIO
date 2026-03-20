@@ -103,44 +103,34 @@ const WindowsXP = ({ onClose }) => {
   );
 
   const desktopContent = (
-    <div className="xp-desktop" onClick={() => setStartOpen(false)} style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1545431780-8b1e4a5db3ad?q=80&w=2000&auto=format&fit=crop")', backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', height: '100%' }}>
+    <div className="xp-desktop" onClick={() => setStartOpen(false)} style={{ backgroundImage: 'url("https://upload.wikimedia.org/wikipedia/en/1/17/Bliss_%28Windows_XP%29.png")', backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', height: '100%', fontFamily: 'Tahoma, sans-serif' }}>
       
       {/* Desktop Icons */}
       <div className="xp-icon-grid" style={{ display: 'flex', flexDirection: 'column', gap: '20px', padding: '20px', alignItems: 'flex-start' }}>
-        <div className="xp-icon" onDoubleClick={() => openApp("About Me", `<div style="padding:20px"><h3>About Me</h3><p>I blend critical analysis with aesthetic execution.</p></div>`)}>
-          <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" alt="About Me" />
-          <span style={{color: 'white', textShadow: '1px 1px 2px black'}}>About Me</span>
+        <div className="xp-icon" onDoubleClick={() => openApp("My Computer", `<div style="padding:20px"><h3>My Computer</h3><p>Local Disk (C:)</p></div>`)}>
+          <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png" alt="Computer" style={{ imageRendering: 'pixelated', width: 32, height: 32 }} />
+          <span style={{color: 'white', textShadow: '1px 1px 2px black, 0 0 1em black, 0 0 0.2em black'}}>My Computer</span>
         </div>
         
-        <div className="xp-icon" onDoubleClick={() => openApp("My Projects", `<div style="padding:20px"><h3>My Projects</h3><ul><li>Analytics Tool</li><li>React Web Apps</li></ul></div>`)}>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="My Projects" style={{width: 32, height: 32}} />
-          <span style={{color: 'white', textShadow: '1px 1px 2px black'}}>My Projects</span>
+        <div className="xp-icon" onDoubleClick={() => openApp("Recycle Bin", `<div style="padding:20px"><h3>Recycle Bin</h3><p>Folder empty.</p></div>`)}>
+          <img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_empty-4.png" alt="Recycle Bin" style={{ imageRendering: 'pixelated', width: 32, height: 32 }} />
+          <span style={{color: 'white', textShadow: '1px 1px 2px black, 0 0 1em black, 0 0 0.2em black'}}>Recycle Bin</span>
+        </div>
+
+        <div className="xp-icon" onDoubleClick={() => openApp("My Portfolio", `<div style="padding:20px"><h3>My Portfolio</h3><p>Welcome to my professional site.</p></div>`)}>
+          <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" alt="My Portfolio" style={{ imageRendering: 'pixelated', width: 32, height: 32 }} />
+          <span style={{color: 'white', textShadow: '1px 1px 2px black, 0 0 1em black, 0 0 0.2em black'}}>My Portfolio</span>
         </div>
         
-        <div className="xp-icon" onDoubleClick={() => openApp("Experience", `<div style="padding:20px"><h3>Experience</h3><p>Building scalable insights.</p></div>`)}>
-          <img src="https://win98icons.alexmeub.com/icons/png/directory_explorer-5.png" alt="Experience" />
-          <span style={{color: 'white', textShadow: '1px 1px 2px black'}}>Experience</span>
-        </div>
-        
-        <div className="xp-icon" onDoubleClick={() => openApp("Contact", `<div style="padding:20px"><h3>Contact</h3><p>Shoot me an email.</p></div>`)}>
-          <img src="https://win98icons.alexmeub.com/icons/png/message_envelope_open-0.png" alt="Contact" />
-          <span style={{color: 'white', textShadow: '1px 1px 2px black'}}>Contact</span>
-        </div>
-        
-        <div className="xp-icon" onDoubleClick={() => window.open('https://github.com/vishal', '_blank')}>
-          <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style={{width: 32, height: 32, borderRadius: 8, background: 'white', padding: 2}}/>
-          <span style={{color: 'white', textShadow: '1px 1px 2px black'}}>GitHub</span>
-        </div>
-        
-        <div className="xp-icon" onDoubleClick={() => openApp("Terminal", `<div style="padding:20px; background:black; color:lime; height:100%; border-radius:4px;"><pre>> Initiating terminal connection...<br/>> OK</pre></div>`)}>
-          <img src="https://win98icons.alexmeub.com/icons/png/console_prompt-0.png" alt="Terminal" />
-          <span style={{color: 'white', textShadow: '1px 1px 2px black'}}>Terminal</span>
+        <div className="xp-icon" onDoubleClick={() => openApp("Internet", `<div style="padding:20px"><h3>Internet Explorer</h3><p>Welcome to the World Wide Web.</p></div>`)}>
+          <img src="https://win98icons.alexmeub.com/icons/png/msie1-2.png" alt="Internet" style={{ imageRendering: 'pixelated', width: 32, height: 32 }} />
+          <span style={{color: 'white', textShadow: '1px 1px 2px black, 0 0 1em black, 0 0 0.2em black'}}>Internet Explorer</span>
         </div>
       </div>
       
       {/* Start Menu */}
       {!isLocked && startOpen && (
-        <div className="xp-start-menu" style={{ bottom: '74px', left: 'calc(50% - 380px)' }} onClick={e => e.stopPropagation()}>
+        <div className="xp-start-menu" onClick={e => e.stopPropagation()}>
           <div className="xp-start-header">
             <img src="https://win98icons.alexmeub.com/icons/png/user_computer-0.png" alt="User" className="xp-user-icon"/>
             <span>vishal'sWorkplace</span>
@@ -208,95 +198,21 @@ const WindowsXP = ({ onClose }) => {
         </div>
       )}
 
-      {/* Redesigned Floating Retro Modern Dock */}
-      <div className="absolute bottom-3 w-full flex justify-center items-center pointer-events-none z-[2000] font-sans">
-        
-        {/* The interactive floating container */}
-        <div className="flex gap-4 h-14 pointer-events-auto drop-shadow-2xl" onClick={e => e.stopPropagation()}>
-          
-          {/* Left Block: Start, Weather, Search, SysTray */}
-          <div className="flex items-center bg-gradient-to-b from-[#1b62dd] to-[#1253c4] rounded-xl overflow-visible border border-white/20 shadow-[0_4px_15px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.3)]">
-            
-            {/* Start Button */}
-            <button className={`h-full bg-gradient-to-b from-[#3ca14a] to-[#2b8332] text-white font-medium text-xl px-5 flex items-center gap-3 rounded-l-xl border-r border-[#00000040] shadow-[inset_1px_1px_2px_rgba(255,255,255,0.4),2px_0_4px_rgba(0,0,0,0.3)] hover:brightness-110 transition-all ${startOpen ? 'brightness-110' : ''}`} onClick={() => setStartOpen(!startOpen)}>
-              <svg style={{ filter: "drop-shadow(1px 1px 1px rgba(0,0,0,0.6))" }} width="24" height="24" viewBox="0 0 88 88">
-                <path d="M0 14L38 8V44H0V14Z" fill="#F86940" />
-                <path d="M42 7.5L88 0V44H42V7.5Z" fill="#80C65A" />
-                <path d="M0 46H38V82L0 76V46Z" fill="#44A3E8" />
-                <path d="M42 46H88V88L42 80V46Z" fill="#FEC22A" />
-              </svg>
-              Start
-            </button>
-
-            {/* Weather Widget */}
-            <div className="flex items-center gap-2 px-4 text-white text-sm select-none cursor-pointer hover:bg-white/10 h-full transition-colors border-r border-[#ffffff20]">
-              <div className="relative">
-                <div className="w-6 h-6 bg-orange-400 rounded-full shadow-[0_0_8px_rgba(255,165,0,0.8)]"></div>
-                <div className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-red-500 rounded-full text-[9px] flex justify-center items-center font-bold">4</div>
-              </div>
-              <div className="flex flex-col leading-tight pb-0">
-                <span className="font-semibold" style={{textShadow: "1px 1px 2px rgba(0,0,0,0.5)"}}>86°F</span>
-                <span className="opacity-80 text-xs">Sunny</span>
-              </div>
-            </div>
-
-            {/* Search Bar */}
-            <div className="h-full flex items-center px-3 border-r border-[#ffffff20]">
-              <div className="bg-[#dbe4f1] w-64 h-9 rounded-full flex items-center px-4 gap-2 shadow-inner cursor-text hover:bg-white transition-colors">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <span className="text-gray-500 text-base">Search</span>
-              </div>
-            </div>
-
-            {/* Task View */}
-            <div className="flex items-center px-4 h-full cursor-pointer hover:bg-white/10 transition-colors border-r border-[#ffffff20]">
-               <svg style={{ filter: "drop-shadow(1px 1px 1px rgba(0,0,0,0.5))" }} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><rect x="8" y="3" width="8" height="18"></rect></svg>
-            </div>
-
-            {/* System Tray Icons */}
-            <div className="flex items-center gap-2 px-4 h-full cursor-pointer hover:bg-white/10 transition-colors border-r border-[#ffffff20]">
-              <svg style={{ filter: "drop-shadow(1px 1px 1px rgba(0,0,0,0.5))" }} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
-              <svg style={{ filter: "drop-shadow(1px 1px 1px rgba(0,0,0,0.5))" }} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
-              <svg style={{ filter: "drop-shadow(1px 1px 1px rgba(0,0,0,0.5))" }} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-              <svg style={{ filter: "drop-shadow(1px 1px 1px rgba(0,0,0,0.5))" }} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="6" width="18" height="12" rx="2" ry="2"></rect><line x1="23" y1="13" x2="23" y2="11"></line></svg>
-            </div>
-
-            {/* Clock */}
-            <div className="flex flex-col justify-center items-end px-5 text-white text-xs leading-tight cursor-pointer hover:bg-white/10 h-full rounded-r-xl transition-colors">
-              <span className="font-semibold" style={{textShadow: "1px 1px 2px rgba(0,0,0,0.5)"}}>{time}</span>
-              <span className="opacity-90">{new Date().toLocaleDateString('en-US')}</span>
-            </div>
-
-          </div>
-
-          {/* Right Block: App Dock */}
-          <div className="flex items-center gap-1 px-5 bg-gradient-to-b from-[#1b62dd] to-[#1253c4] rounded-xl border border-white/20 shadow-[0_4px_15px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.3)]">
-            
-            {/* App Dock Item (Folder) */}
-            <div className="relative group p-2.5 rounded-lg hover:bg-white/20 cursor-pointer flex flex-col items-center justify-center transition-all bg-white/10 shadow-inner my-1" onClick={() => openApp("My Documents", "<div style='padding:20px'><h3>My Documents</h3><p>Empty folder.</p></div>")}>
-              <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" alt="Docs" className="w-[28px] h-[28px] filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" />
-              <div className="absolute -bottom-[2px] w-1.5 h-1.5 bg-white rounded-full opacity-100 shadow-[0_0_3px_white]"></div>
-            </div>
-            
-            {/* Edge / Browser */}
-            <div className="relative group p-2.5 rounded-lg hover:bg-white/10 cursor-pointer flex flex-col items-center justify-center transition-all my-1" onClick={() => openApp("Browser", "<div style='padding:20px'><h3>Internet Browser</h3><p>Ready to surf the web.</p></div>")}>
-              <img src="https://win98icons.alexmeub.com/icons/png/msie1-2.png" alt="Edge" className="w-[28px] h-[28px] filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" />
-              <div className="absolute -bottom-[2px] w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover:opacity-60 transition-opacity"></div>
-            </div>
-            
-            {/* Chrome */}
-            <div className="relative group p-2.5 rounded-lg hover:bg-white/10 cursor-pointer flex flex-col items-center justify-center transition-all my-1" onClick={() => openApp("Chrome", "<div style='padding:20px'><h3>Google Chrome</h3><p>New Tab</p></div>")}>
-               <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Google_Chrome_icon_%282011%29.png" alt="Chrome" className="w-[28px] h-[28px] filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" />
-              <div className="absolute -bottom-[2px] w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover:opacity-60 transition-opacity"></div>
-            </div>
-            
-            {/* Terminal */}
-            <div className="relative group p-2.5 rounded-lg hover:bg-white/10 cursor-pointer flex flex-col items-center justify-center transition-all my-1" onClick={() => openApp("Terminal", `<div style="padding:20px; background:black; color:lime; height:100%; border-radius:4px;"><pre>> Initiating terminal connection...<br/>> OK</pre></div>`)}>
-               <img src="https://win98icons.alexmeub.com/icons/png/console_prompt-0.png" alt="Terminal" className="w-[28px] h-[28px] filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" />
-              <div className="absolute -bottom-[2px] w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover:opacity-60 transition-opacity"></div>
-            </div>
-
-          </div>
+      {/* Classic Luna Taskbar */}
+      <div className="xp-taskbar" onClick={e => e.stopPropagation()}>
+        <button className={`xp-start-button ${startOpen ? 'active' : ''}`} onClick={() => setStartOpen(!startOpen)}>
+          <svg style={{ filter: "drop-shadow(1px 1px 1px rgba(0,0,0,0.6))" }} width="18" height="18" viewBox="0 0 88 88" className="mr-1">
+            <path d="M0 14L38 8V44H0V14Z" fill="#F86940" />
+            <path d="M42 7.5L88 0V44H42V7.5Z" fill="#80C65A" />
+            <path d="M0 46H38V82L0 76V46Z" fill="#44A3E8" />
+            <path d="M42 46H88V88L42 80V46Z" fill="#FEC22A" />
+          </svg>
+          <span style={{ fontStyle: 'italic', fontWeight: 'bold' }}>start</span>
+        </button>
+        <div className="xp-task-divider"></div>
+        <div className="xp-system-tray">
+          <img src="https://win98icons.alexmeub.com/icons/png/loudspeaker_rays-0.png" alt="Volume" className="mr-2" style={{ width: '16px' }}/>
+          <span className="xp-clock">{time}</span>
         </div>
       </div>
     </div>
