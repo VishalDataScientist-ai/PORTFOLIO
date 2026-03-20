@@ -36,3 +36,32 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8; 
 }
+
+/* --- Galaxy Effect Global Modifiers --- */
+.galaxy-layer section,
+.galaxy-layer div,
+.galaxy-layer {
+  position: relative; /* ensure components stack over fixed canvas cleanly */
+}
+
+/* Strip opaque light backgrounds to reveal stars below */
+.galaxy-layer .bg-white,
+.galaxy-layer .bg-slate-50,
+.galaxy-layer .bg-slate-100 {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(2px) !important;
+}
+
+/* Force dark-mode friendly high-contrast soft text */
+.galaxy-layer .text-slate-900,
+.galaxy-layer .text-slate-800,
+.galaxy-layer .text-slate-700,
+.galaxy-layer .text-slate-600 {
+  color: #f1f5f9 !important;
+}
+
+/* Soften strong light borders */
+.galaxy-layer .border-slate-100,
+.galaxy-layer .border-slate-200 {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}

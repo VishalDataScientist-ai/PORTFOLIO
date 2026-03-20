@@ -9,6 +9,7 @@ import ValueProposition from './components/ValueProposition';
 import Contact from './components/Contact';
 import CustomCursor from './components/CustomCursor';
 import InteractiveOS from './components/InteractiveOS';
+import Galaxy from './components/ui/Galaxy';
 import { ThemeProvider } from 'next-themes';
 import Lenis from 'lenis';
 import gsap from 'gsap';
@@ -103,13 +104,19 @@ function App() {
         <Navbar />
         <main>
           <Hero />
-          <About />
-          <InteractiveOS />
-          <ValueProposition />
-          <Skills />
-          <Projects />
-          <Experience />
-          <Contact />
+          
+          <div className="galaxy-layer relative z-10">
+            <div className="fixed inset-0 pointer-events-none z-[-1]">
+              <Galaxy transparent={false} />
+            </div>
+            <About />
+            <InteractiveOS />
+            <ValueProposition />
+            <Skills />
+            <Projects />
+            <Experience />
+            <Contact />
+          </div>
         </main>
       </div>
     </ThemeProvider>
