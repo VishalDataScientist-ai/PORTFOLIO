@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import Experience from './components/Experience';
 import ValueProposition from './components/ValueProposition';
 import Contact from './components/Contact';
+import TestimonialsSection from './components/TestimonialsSection';
 import CustomCursor from './components/CustomCursor';
 import InteractiveOS from './components/InteractiveOS';
 import Galaxy from './components/ui/Galaxy';
@@ -128,6 +129,7 @@ function App() {
             <Skills />
             <Projects />
             <Experience />
+            <TestimonialsSection />
             <Contact />
           </div>
         </main>
