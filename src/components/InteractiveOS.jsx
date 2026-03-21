@@ -110,7 +110,7 @@ const InteractiveOS = () => {
       <div className="sticky top-24 w-full px-4 md:px-8 z-10 h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center" style={{ perspective: '1200px' }}>
         <div 
           ref={windowRef}
-          className="h-full aspect-square max-w-full bg-[#0a0a0a] rounded-3xl sm:rounded-[2.5rem] border border-slate-800 shadow-[0_0_100px_rgba(0,0,0,0.9)] flex items-center justify-center relative overflow-hidden group mx-auto"
+          className="h-full aspect-[4/3] max-w-full bg-[#0a0a0a] rounded-3xl sm:rounded-[2.5rem] border border-slate-800 shadow-[0_0_100px_rgba(0,0,0,0.9)] flex items-center justify-center relative overflow-hidden group mx-auto"
           style={{ transformStyle: 'preserve-3d' }}
         >
           {/* Inner Glare / Bezel reflection */}
