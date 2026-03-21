@@ -44,23 +44,9 @@ const Hero = () => {
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-fuchsia-500/20 blur-3xl pointer-events-none gsap-blob-2" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 w-full flex items-center justify-start h-full pb-32">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: { staggerChildren: 0.2, delayChildren: 0.5 }
-            }
-          }}
-          className="flex flex-col items-start w-full md:w-2/3 lg:w-[60%]"
-        >
+        <div className="flex flex-col items-start w-full md:w-2/3 lg:w-[60%]">
           {/* Small header / branding mimicking the screenshot */}
-          <motion.div 
-            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } }}
-            className="flex items-center space-x-4 mb-16 md:mb-24"
-          >
+          <div className="flex items-center space-x-4 mb-16 md:mb-24 animate-fade-in-up" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
             <div className="w-12 h-12 rounded-full border border-gray-500/50 flex items-center justify-center">
               <div className="w-2 h-2 rounded-full bg-slate-200 shadow-[0_0_10px_rgba(255,255,255,0.8)]"></div>
             </div>
@@ -68,13 +54,10 @@ const Hero = () => {
               <span className="tracking-[0.3em]">VISHAL</span>
               <span className="text-gray-500/80 font-medium">BUSINESS ANALYST</span>
             </div>
-          </motion.div>
+          </div>
           
           {/* Main Typography Lockup */}
-          <motion.div 
-            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } }}
-            className="flex flex-col pl-2 md:pl-4"
-          >
+          <div className="flex flex-col pl-2 md:pl-4 animate-fade-in-up" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
             <div className="text-6xl sm:text-7xl md:text-[5.5rem] lg:text-[7.5rem] leading-[0.85] text-white tracking-tighter mb-10 cursor-default">
               <div className="font-medium drop-shadow-2xl">strategic</div>
               <div className="font-serif italic text-gray-300 drop-shadow-2xl">analyst.</div>
@@ -86,8 +69,8 @@ const Hero = () => {
               WITH RAW LOGIC AND UNCOMPROMISING<br className="hidden sm:block" />
               BUSINESS STRATEGY.
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
       {/* Scroll Indicator */}
