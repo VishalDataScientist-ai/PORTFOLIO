@@ -10,6 +10,7 @@ import Contact from './components/Contact';
 import TestimonialsSection from './components/TestimonialsSection';
 import CustomCursor from './components/CustomCursor';
 import InteractiveOS from './components/InteractiveOS';
+import Footer from './components/Footer';
 import Galaxy from './components/ui/Galaxy';
 import { ThemeProvider } from 'next-themes';
 import Lenis from 'lenis';
@@ -133,6 +134,8 @@ function App() {
             <Contact />
           </div>
         </main>
+        
+        <Footer />
       </div>
     </ThemeProvider>
   );
