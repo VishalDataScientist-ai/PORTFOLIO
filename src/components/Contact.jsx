@@ -3,13 +3,20 @@ import { motion } from 'framer-motion';
 import { Mail, MapPin, Linkedin, Send, Github } from 'lucide-react';
 import Lightning from './ui/Lightning';
 import FancyButton from './ui/shiny-button';
+import { AnimatedShaderBackground } from './ui/animated-shader-hero';
 
 const Contact = () => {
   return (
-    <section id="contact" className="relative bg-[#050510] overflow-hidden border-t border-white/10">
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-70">
-        <Lightning hue={260} xOffset={0} speed={1} intensity={1} size={1} />
+    <section id="contact" className="relative overflow-hidden border-t border-white/10 text-white pb-0">
+      
+      {/* Target Isolated WebGL Implementation */}
+      <div className="absolute inset-0 pointer-events-auto z-0">
+        <AnimatedShaderBackground />
+        
+        {/* Deep Fade Overlay so text remains extremely readable */}
+        <div className="absolute inset-0 bg-[#050510]/80 backdrop-blur-[2px]"></div>
       </div>
+
       <div className="relative z-10 py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
