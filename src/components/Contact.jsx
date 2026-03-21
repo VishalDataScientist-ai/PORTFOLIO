@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Linkedin, Send } from 'lucide-react';
+import { Mail, MapPin, Linkedin, Send, Github } from 'lucide-react';
 import Lightning from './ui/Lightning';
 import FancyButton from './ui/shiny-button';
 
@@ -28,7 +28,7 @@ const Contact = () => {
 
             <div className="mb-16 mt-8 flex flex-col space-y-10">
               <a href="mailto:contact@vishalsingh.com" className="flex items-center space-x-6 group w-max">
-                <FancyButton icon={<Mail size={26} className="text-white group-hover:text-red-400 transition-colors" />} variant="red" className="p-4" />
+                <FancyButton icon={<Mail size={32} className="text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.5)] transition-colors" />} variant="red" className="p-4" />
                 <div className="transition-transform group-hover:translate-x-3">
                   <h4 className="font-semibold text-white text-xl md:text-2xl mb-1">Email Me</h4>
                   <span className="text-slate-400 tracking-wider text-sm md:text-base">contact@vishalsingh.com</span>
@@ -36,15 +36,23 @@ const Contact = () => {
               </a>
               
               <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="flex items-center space-x-6 group w-max">
-                <FancyButton icon={<Linkedin size={26} className="text-white group-hover:text-indigo-400 transition-colors" />} variant="indigo" className="p-4" />
+                <FancyButton icon={<Linkedin size={32} className="text-blue-500 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] transition-colors" />} variant="indigo" className="p-4" />
                 <div className="transition-transform group-hover:translate-x-3">
                   <h4 className="font-semibold text-white text-xl md:text-2xl mb-1">Connect</h4>
                   <span className="text-slate-400 tracking-wider text-sm md:text-base">LinkedIn Profile</span>
                 </div>
               </a>
 
+              <a href="https://github.com" target="_blank" rel="noreferrer" className="flex items-center space-x-6 group w-max">
+                <FancyButton icon={<Github size={32} className="text-slate-300 drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] transition-colors" />} variant="default" className="p-4" />
+                <div className="transition-transform group-hover:translate-x-3">
+                  <h4 className="font-semibold text-white text-xl md:text-2xl mb-1">Follow</h4>
+                  <span className="text-slate-400 tracking-wider text-sm md:text-base">GitHub Profile</span>
+                </div>
+              </a>
+
               <div className="flex items-center space-x-6 group w-max select-none cursor-default">
-                <FancyButton icon={<MapPin size={26} className="text-white group-hover:text-emerald-400 transition-colors" />} variant="green" className="p-4 pointer-events-none" />
+                <FancyButton icon={<MapPin size={32} className="text-emerald-500 drop-shadow-[0_0_8px_rgba(16,185,129,0.5)] transition-colors" />} variant="green" className="p-4 pointer-events-none" />
                 <div className="transition-transform group-hover:translate-x-3">
                   <h4 className="font-semibold text-white text-xl md:text-2xl mb-1">Location</h4>
                   <span className="text-slate-400 tracking-wider text-sm md:text-base">India</span>
