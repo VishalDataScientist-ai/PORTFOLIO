@@ -148,6 +148,16 @@ export const StaggerTestimonials = () => {
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
+  // Auto-rotate effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleMove(1);
+    }, 4000);
+    
+    // Clear interval when unmounting or when user manually shifts the deck
+    return () => clearInterval(interval);
+  }, [testimonialsList]);
+
   return (
     <div
       className="relative w-full overflow-hidden bg-transparent"
