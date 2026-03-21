@@ -13,8 +13,8 @@ const Contact = () => {
       <div className="absolute inset-0 pointer-events-auto z-0">
         <AnimatedShaderBackground />
         
-        {/* Deep Fade Overlay so text remains extremely readable */}
-        <div className="absolute inset-0 bg-[#050510]/80 backdrop-blur-[2px]"></div>
+        {/* Subtle radial dark edges to retain text legibility without muddying colors */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.6)_100%)] pointer-events-none"></div>
       </div>
 
       <div className="relative z-10 py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
