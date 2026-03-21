@@ -1,64 +1,67 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { BrainCircuit, Briefcase, Users } from 'lucide-react';
-
-const values = [
-  {
-    icon: <BrainCircuit size={32} className="text-blue-600" />,
-    title: "Analytical Thinking",
-    description: "Ability to deeply understand complex patterns, interpret diverse datasets, and derive clear, actionable insights."
-  },
-  {
-    icon: <Briefcase size={32} className="text-indigo-600" />,
-    title: "Business Perspective",
-    description: "Focus on solving real-world business problems and driving measurable value rather than just executing technical tasks."
-  },
-  {
-    icon: <Users size={32} className="text-sky-600" />,
-    title: "Communication & Leadership",
-    description: "Strong experience collaborating with cross-functional teams, managing initiatives, and presenting ideas clearly to stakeholders."
-  }
-];
+import { ContainerScroll } from './ui/container-scroll-animation';
 
 const ValueProposition = () => {
   return (
-    <section id="values" className="py-24 bg-white/5 backdrop-blur-md border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-sm font-bold tracking-widest text-blue-400 uppercase mb-3">Value Proposition</h2>
-            <h3 className="text-3xl md:text-5xl font-extrabold text-white mb-6">What I Bring to the Table</h3>
-            <p className="max-w-2xl mx-auto text-lg text-slate-300">
-              A unique blend of analytical rigor and business acumen, designed to help organizations optimize their strategy and growth.
-            </p>
-          </motion.div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {values.map((val, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="bg-white/5 backdrop-blur-md rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all border border-white/10 group"
-            >
-              <div className="w-16 h-16 rounded-xl bg-white/5 backdrop-blur-md flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                {val.icon}
+    <section id="values" className="relative bg-transparent pointer-events-auto">
+      <div className="max-w-7xl mx-auto overflow-hidden">
+        <ContainerScroll
+          titleComponent={
+            <div className="mb-10 lg:mb-20">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-300">
+                Uncompromising logic driving <br />
+                <span className="text-5xl md:text-[6rem] lg:text-[7rem] font-bold mt-2 leading-none text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 drop-shadow-2xl inline-block pb-4">
+                  Strategic Systems
+                </span>
+              </h1>
+            </div>
+          }
+        >
+          <div className="flex flex-col md:flex-row h-full w-full relative">
+            {/* Left side -> Unsplash Globe Asset */}
+            <div className="w-full md:w-1/2 h-full relative">
+              <img 
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" 
+                alt="Global Reach"
+                className="w-full h-full object-cover opacity-50 contrast-125 saturate-150"
+                draggable={false}
+              />
+              <div className="absolute inset-x-0 bottom-12 flex flex-col items-start pl-8 md:pl-12">
+                <div className="w-8 border-t-[3px] border-white mb-2 shadow-[0_0_10px_rgba(255,255,255,0.8)]"></div>
+                <p className="text-white text-xs tracking-[0.3em] font-bold drop-shadow-md">GLOBAL REACH</p>
               </div>
-              <h4 className="text-xl font-bold text-white mb-4">{val.title}</h4>
-              <p className="text-slate-300 leading-relaxed">
-                {val.description}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/40 to-[#09090b]"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            </div>
+
+            {/* Right side -> Text block mimicking screenshot */}
+            <div className="w-full md:w-1/2 h-full bg-[#09090b] flex flex-col justify-center p-8 md:p-12 relative -ml-1">
+              
+              <div className="flex items-center space-x-2 mb-10 mt-[-2rem]">
+                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.8)] animate-pulse"></div>
+                 <span className="text-emerald-500 text-[0.65rem] font-bold tracking-widest uppercase">Available for hire</span>
+              </div>
+              
+              <h2 className="text-5xl md:text-6xl lg:text-[4.5rem] font-bold text-white leading-[0.9] mb-1 tracking-tighter cursor-default selection:bg-cyan-500/30">
+                code that
+              </h2>
+              <h2 className="text-5xl md:text-6xl lg:text-[4.5rem] font-serif italic text-gray-400 leading-[0.9] mb-8 tracking-tighter opacity-80 cursor-default selection:bg-fuchsia-500/30">
+                hits different.
+              </h2>
+              
+              <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-sm font-light mt-4">
+                I'm Vishal. A business analyst blending hard-core logic with strategic aesthetics. I build analytical solutions that are scalable, insightful, and stupidly good-looking.
               </p>
-            </motion.div>
-          ))}
-        </div>
+
+              <div className="absolute bottom-12 left-12 right-12 flex gap-6 md:gap-8 overflow-hidden text-gray-500 font-extrabold text-base md:text-lg lg:text-xl tracking-tighter uppercase whitespace-nowrap">
+                <span className="hover:text-cyan-400 transition-colors cursor-pointer">Python</span>
+                <span className="hover:text-fuchsia-400 transition-colors cursor-pointer">SQL</span>
+                <span className="hover:text-emerald-400 transition-colors cursor-pointer">Excel</span>
+                <span className="hover:text-amber-400 transition-colors cursor-pointer">Tableau</span>
+              </div>
+            </div>
+          </div>
+        </ContainerScroll>
       </div>
     </section>
   );
