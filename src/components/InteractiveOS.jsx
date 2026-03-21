@@ -107,10 +107,10 @@ const InteractiveOS = () => {
       </div>
 
       {/* Sticky OS Window */}
-      <div className="sticky top-24 w-full max-w-5xl px-4 md:px-8 z-10 h-[70vh] flex items-center justify-center" style={{ perspective: '1200px' }}>
+      <div className="sticky top-24 w-full px-4 md:px-8 z-10 h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center" style={{ perspective: '1200px' }}>
         <div 
           ref={windowRef}
-          className="w-full h-full bg-[#0a0a0a] rounded-3xl sm:rounded-[2.5rem] border border-slate-800 shadow-[0_0_100px_rgba(0,0,0,0.9)] flex items-center justify-center relative overflow-hidden group"
+          className="h-full aspect-square max-w-full bg-[#0a0a0a] rounded-3xl sm:rounded-[2.5rem] border border-slate-800 shadow-[0_0_100px_rgba(0,0,0,0.9)] flex items-center justify-center relative overflow-hidden group mx-auto"
           style={{ transformStyle: 'preserve-3d' }}
         >
           {/* Inner Glare / Bezel reflection */}
@@ -179,7 +179,7 @@ const InteractiveOS = () => {
             {/* Windows XP Branding */}
             <div className="flex flex-col items-center mb-8 drop-shadow-2xl">
               <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Windows_logo_-_2001.svg" 
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Windows_logo_-_2001.svg/512px-Windows_logo_-_2001.svg.png" 
                 alt="Windows XP" 
                 className="w-24 md:w-32 mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
               />
