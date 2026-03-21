@@ -152,7 +152,7 @@ export const StaggerTestimonials = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       handleMove(1);
-    }, 4000);
+    }, 2000);
     
     // Clear interval when unmounting or when user manually shifts the deck
     return () => clearInterval(interval);
