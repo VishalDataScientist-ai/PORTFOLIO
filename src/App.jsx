@@ -124,7 +124,6 @@ function App() {
               />
             </div>
             <About />
-            <InteractiveOS />
             <ValueProposition />
             <Skills />
             <Projects />
