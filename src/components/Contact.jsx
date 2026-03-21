@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Linkedin, Send } from 'lucide-react';
 import Lightning from './ui/Lightning';
-import GooeyNav from './ui/GooeyNav';
+import FancyButton from './ui/shiny-button';
 
 const Contact = () => {
   return (
@@ -26,63 +26,34 @@ const Contact = () => {
               Whether you have an interesting project, a potential career opportunity, or just want to connect over business analytics and strategy, my inbox is always open.
             </p>
 
-            <div className="mb-12">
-              <GooeyNav 
-                colors={['#3b82f6', '#1d4ed8', '#60a5fa', '#93c5fd']}
-                particleDistances={[60, 20]}
-                items={[
-                  {
-                    href: 'mailto:contact@vishalsingh.com',
-                    className: 'flex items-center space-x-4 group w-full text-left',
-                    content: (
-                      <>
-                        <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shadow-sm relative z-10">
-                          <Mail size={24} />
-                        </div>
-                        <div className="relative z-10 transition-transform group-hover:translate-x-1">
-                          <h4 className="font-semibold text-white">Email Me</h4>
-                          <span className="text-slate-300">contact@vishalsingh.com</span>
-                        </div>
-                      </>
-                    )
-                  },
-                  {
-                    href: 'https://linkedin.com',
-                    className: 'flex items-center space-x-4 group w-full text-left',
-                    content: (
-                      <>
-                        <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shadow-sm relative z-10">
-                          <Linkedin size={24} />
-                        </div>
-                        <div className="relative z-10 transition-transform group-hover:translate-x-1">
-                          <h4 className="font-semibold text-white">Connect</h4>
-                          <span className="text-slate-300">LinkedIn Profile</span>
-                        </div>
-                      </>
-                    )
-                  },
-                  {
-                    href: '#',
-                    className: 'flex items-center space-x-4 group w-full text-left',
-                    content: (
-                      <>
-                        <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shadow-sm relative z-10">
-                          <MapPin size={24} />
-                        </div>
-                        <div className="relative z-10 transition-transform group-hover:translate-x-1">
-                          <h4 className="font-semibold text-white">Location</h4>
-                          <span className="text-slate-300">India</span>
-                        </div>
-                      </>
-                    )
-                  },
-                  {
-                    href: '/resume.pdf',
-                    className: 'inline-flex items-center justify-center space-x-2 bg-slate-900 hover:bg-slate-800 text-white px-8 py-3.5 rounded-lg transition-colors shadow-md font-medium mt-6 relative z-10 w-max',
-                    content: <span>Download My Resume</span>
-                  }
-                ]}
-              />
+            <div className="mb-16 mt-8 flex flex-col space-y-10">
+              <a href="mailto:contact@vishalsingh.com" className="flex items-center space-x-6 group w-max">
+                <FancyButton icon={<Mail size={26} className="text-white group-hover:text-red-400 transition-colors" />} variant="red" className="p-4" />
+                <div className="transition-transform group-hover:translate-x-3">
+                  <h4 className="font-semibold text-white text-xl md:text-2xl mb-1">Email Me</h4>
+                  <span className="text-slate-400 tracking-wider text-sm md:text-base">contact@vishalsingh.com</span>
+                </div>
+              </a>
+              
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="flex items-center space-x-6 group w-max">
+                <FancyButton icon={<Linkedin size={26} className="text-white group-hover:text-indigo-400 transition-colors" />} variant="indigo" className="p-4" />
+                <div className="transition-transform group-hover:translate-x-3">
+                  <h4 className="font-semibold text-white text-xl md:text-2xl mb-1">Connect</h4>
+                  <span className="text-slate-400 tracking-wider text-sm md:text-base">LinkedIn Profile</span>
+                </div>
+              </a>
+
+              <div className="flex items-center space-x-6 group w-max select-none cursor-default">
+                <FancyButton icon={<MapPin size={26} className="text-white group-hover:text-emerald-400 transition-colors" />} variant="green" className="p-4 pointer-events-none" />
+                <div className="transition-transform group-hover:translate-x-3">
+                  <h4 className="font-semibold text-white text-xl md:text-2xl mb-1">Location</h4>
+                  <span className="text-slate-400 tracking-wider text-sm md:text-base">India</span>
+                </div>
+              </div>
+
+              <a href="/resume.pdf" className="inline-flex items-center justify-center space-x-2 bg-slate-900 hover:bg-cyan-900 border border-slate-700 hover:border-cyan-500 text-white px-8 py-3.5 rounded-lg transition-colors shadow-[0_0_15px_rgba(0,0,0,0.5)] font-medium mt-6 relative z-10 w-max group">
+                <span className="group-hover:text-cyan-50">Download My Resume</span>
+              </a>
             </div>
           </motion.div>
 
