@@ -43,7 +43,7 @@ const Hero = () => {
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-cyan-500/20 blur-3xl pointer-events-none gsap-blob-1" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-fuchsia-500/20 blur-3xl pointer-events-none gsap-blob-2" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center justify-start pt-20 h-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 w-full flex items-center justify-start h-full pb-32">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -54,55 +54,39 @@ const Hero = () => {
               transition: { staggerChildren: 0.2, delayChildren: 0.5 }
             }
           }}
-          className="flex flex-col items-start w-full md:w-1/2 lg:w-[45%]"
+          className="flex flex-col items-start w-full md:w-2/3 lg:w-[60%]"
         >
-          <motion.span 
-            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } }}
-            className="inline-block py-1 px-3 rounded-full bg-cyan-950/60 border border-cyan-500/30 backdrop-blur-sm text-cyan-400 text-sm font-semibold tracking-wider mb-6 shadow-[0_0_15px_rgba(34,211,238,0.2)]"
-          >
-            BCA Student & Aspiring Professional
-          </motion.span>
-          
-          <motion.h2 
-            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } }}
-            className="text-2xl md:text-3xl lg:text-4xl font-medium text-slate-300 mb-6 drop-shadow-lg leading-tight"
-          >
-            Business Analyst | Data & Sales Strategy Enthusiast
-          </motion.h2>
-          
-          <motion.p 
-            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } }}
-            className="text-lg text-slate-400 mb-10 leading-relaxed font-light"
-          >
-            Helping businesses make smarter decisions using data, analytics, and strategic thinking. I bridge the gap between complex datasets and actionable business insights.
-          </motion.p>
-
+          {/* Small header / branding mimicking the screenshot */}
           <motion.div 
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } }}
-            className="flex flex-col sm:flex-row items-start justify-start gap-4 w-full"
+            className="flex items-center space-x-4 mb-16 md:mb-24"
           >
-            <a 
-              href="#projects" 
-              className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white px-8 py-3.5 rounded-lg transition-all shadow-[0_0_20px_rgba(34,211,238,0.4)] font-semibold"
-            >
-              <span>View My Work</span>
-              <ArrowRight size={18} />
-            </a>
-            
-            <a 
-              href="#contact" 
-              className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-transparent border-2 border-fuchsia-500 text-fuchsia-400 hover:bg-fuchsia-500/10 px-8 py-3.5 rounded-lg transition-all shadow-[0_0_15px_rgba(217,70,239,0.3)_inset] font-semibold"
-            >
-              <span>Connect With Me</span>
-              <Mail size={18} />
-            </a>
+            <div className="w-12 h-12 rounded-full border border-gray-500/50 flex items-center justify-center">
+              <div className="w-2 h-2 rounded-full bg-slate-200 shadow-[0_0_10px_rgba(255,255,255,0.8)]"></div>
+            </div>
+            <div className="flex flex-col text-[0.65rem] font-bold tracking-[0.2em] text-slate-200">
+              <span className="tracking-[0.3em]">VISHAL</span>
+              <span className="text-gray-500/80 font-medium">BUSINESS ANALYST</span>
+            </div>
           </motion.div>
+          
+          {/* Main Typography Lockup */}
+          <motion.div 
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } }}
+            className="flex flex-col pl-2 md:pl-4"
+          >
+            <div className="text-6xl sm:text-7xl md:text-[5.5rem] lg:text-[7.5rem] leading-[0.85] text-white tracking-tighter mb-10 cursor-default">
+              <div className="font-medium drop-shadow-2xl">strategic</div>
+              <div className="font-serif italic text-gray-300 drop-shadow-2xl">analyst.</div>
+            </div>
 
-          <div className="mt-16 flex items-center justify-start gap-6">
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors hidden tracking-widest uppercase text-sm font-bold">
-               <Linkedin size={24} />
-            </a>
-          </div>
+            {/* Paragraph with vertical line */}
+            <div className="pl-6 border-l-2 border-gray-500/30 text-[0.65rem] md:text-[0.7rem] font-bold tracking-[0.2em] text-gray-400 leading-loose max-w-md">
+              FORGING DATA-DRIVEN INSIGHTS<br className="hidden sm:block" />
+              WITH RAW LOGIC AND UNCOMPROMISING<br className="hidden sm:block" />
+              BUSINESS STRATEGY.
+            </div>
+          </motion.div>
         </motion.div>
       </div>
 
