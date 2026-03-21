@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { LineChart, Leaf, Search, ArrowUpRight } from 'lucide-react';
+import MagicBento from './ui/MagicBento';
 
 const projects = [
   {
@@ -58,44 +59,56 @@ const Projects = () => {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, idx) => (
+        <MagicBento 
+          items={projects}
+          textAutoHide={false}
+          enableStars={true}
+          enableSpotlight={true}
+          enableBorderGlow={true}
+          enableTilt={false}
+          enableMagnetism={false}
+          clickEffect={true}
+          spotlightRadius={400}
+          particleCount={12}
+          glowColor="132, 0, 255"
+          disableAnimations={false}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          renderItem={(project, idx) => (
             <motion.div 
-              key={idx}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.2 }}
-              className="bg-slate-800 rounded-2xl p-8 border border-slate-700 hover:border-slate-600 transition-colors group flex flex-col h-full"
+              className="p-8 group flex flex-col h-full z-10 relative"
             >
-              <div className="w-14 h-14 rounded-xl bg-slate-700/50 flex items-center justify-center mb-6">
+              <div className="w-14 h-14 rounded-xl bg-slate-700/50 flex flex-shrink-0 items-center justify-center mb-6 z-10 relative">
                 {project.icon}
               </div>
-              <h4 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">{project.title}</h4>
-              <p className="text-slate-400 mb-6 flex-grow leading-relaxed">
+              <h4 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors z-10 relative">{project.title}</h4>
+              <p className="text-slate-400 mb-6 flex-grow leading-relaxed z-10 relative">
                 {project.description}
               </p>
               
-              <div className="mb-6">
+              <div className="mb-6 z-10 relative">
                 <h5 className="text-xs font-bold text-slate-400 tracking-wider uppercase mb-3">Tools Used</h5>
                 <div className="flex flex-wrap gap-2">
                   {project.tools.map((tool, tIdx) => (
-                    <span key={tIdx} className="px-3 py-1 bg-slate-900 text-slate-300 text-sm rounded-full border border-slate-700">
+                    <span key={tIdx} className="px-3 py-1 bg-slate-900 border border-slate-700 text-slate-300 text-sm rounded-full pointer-events-none">
                       {tool}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-slate-700">
+              <div className="pt-6 border-t border-slate-700/50 z-10 relative">
                 <h5 className="text-xs font-bold text-slate-400 tracking-wider uppercase mb-2">Outcome</h5>
                 <p className="text-slate-300 text-sm italic">
                   "{project.outcome}"
                 </p>
               </div>
             </motion.div>
-          ))}
-        </div>
+          )}
+        />
       </div>
     </section>
   );
