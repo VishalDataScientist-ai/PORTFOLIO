@@ -345,7 +345,7 @@ void main(void) {
 		col+=.00125/d*(cos(sin(i)*vec3(1,2,3))+1.);
 		float b=noise(i+p+bg*1.731);
 		col+=.002*b/length(max(p,vec2(b*p.x*.02,p.y)));
-		col=mix(col,vec3(bg*.25,bg*.137,bg*.05),d);
+		col=mix(col,vec3(bg*.02,bg*.08,bg*.18),d);
 	}
 	O=vec4(col,1);
 }`;
